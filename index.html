@@ -1,62 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Supraja Medicherla | Health Data Scientist</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supraja Medicherla | Health Informatics & Data Science Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+            color: #222;
+        }
+        header {
+            padding: 40px;
+            text-align: center;
+            background: #000;
+            color: white;
+        }
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #000;
+            border-left: 4px solid #000;
+            padding-left: 10px;
+        }
+        .skills-grid, .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+        }
+        .contact {
+            text-align: center;
+            padding: 30px;
+        }
+        a {
+            color: #0056d6;
+            text-decoration: none;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <h1>Supraja Medicherla</h1>
-  <h2 id="typing"></h2>
-  <p>Turning healthcare data into meaningful clinical decisions.</p>
-
-  <div class="buttons">
-    <a href="#projects" class="btn">View Projects</a>
-    <a href="mailto:suprajamedicherla249@gmail.com" class="btn-outline">Contact</a>
-  </div>
+<header>
+    <h1>SUPRAJA MEDICHERLA</h1>
+    <p>Health Informatics • Data Science • EHR Specialist</p>
+    <p>
+        <a href="mailto:suprajamedicherla249@gmail.com" style="color:white;">Email</a> |
+        <a href="https://github.com/suprajamedicherla" style="color:white;">GitHub</a> |
+        <a href="YOUR-LINKEDIN-URL" style="color:white;">LinkedIn</a>
+    </p>
 </header>
 
-<!-- SKILLS -->
-<section class="skills">
-  <h2>My Toolbox</h2>
-  <div class="grid">
-    <div class="card">🧠 Machine Learning</div>
-    <div class="card">📊 Data Visualization</div>
-    <div class="card">🏥 EHR & Clinical Systems</div>
-    <div class="card">⚙️ FastAPI & Streamlit</div>
-    <div class="card">🔐 HIPAA & Compliance</div>
-  </div>
+<section>
+    <h2>About Me</h2>
+    <p>
+        Health Informatics and Data Science professional with experience in EHR workflows, healthcare analytics,
+        and clinical decision support. Skilled in Python, SQL, Power BI, ML modeling, and transforming clinical data
+        into actionable insights that improve patient outcomes and system efficiency.
+    </p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="projects">
-  <h2>Featured Work</h2>
+<section>
+    <h2>Skills</h2>
 
-  <div class="project">
-    <h3>🧠 Anxiety Severity Prediction</h3>
-    <p><b>Problem:</b> Mental health distress often goes unnoticed.</p>
-    <p><b>Data:</b> 579 college students across 48 U.S. states.</p>
-    <p><b>Model:</b> Tuned KNN (F1 = 0.879).</p>
-    <p><b>Impact:</b> Early screening via live web app.</p>
+    <div class="skills-grid">
+        <div class="card">
+            <h3>Programming</h3>
+            <p>Python, SQL, R</p>
+        </div>
+        
+        <div class="card">
+            <h3>Machine Learning</h3>
+            <p>KNN, SVM, Random Forest, XGBoost, CNN, RNN, GAN, Logistic Regression</p>
+        </div>
 
-    <div class="buttons">
-      <a href="https://anxiety-screener-app.streamlit.app/" class="btn">Live App</a>
-      <a href="https://github.com/suprajamedicherla" class="btn-outline">Code</a>
+        <div class="card">
+            <h3>Tools</h3>
+            <p>Power BI, Tableau, BigQuery, Snowflake, Databricks, Excel</p>
+        </div>
+
+        <div class="card">
+            <h3>Healthcare Informatics</h3>
+            <p>EHR Management, ICD-10, CPT, SNOMED CT, CEHRS Certified, HIPAA</p>
+        </div>
     </div>
-  </div>
-
-  <div class="project">
-    <h3>🏥 Health Risk Prediction App</h3>
-    <p>Multi-class XGBoost model predicting individual health risk.</p>
-    <p>Accuracy: 84% | Deployed with Streamlit.</p>
-  </div>
 </section>
 
-<footer>
-  <p>© 2025 Supraja Medicherla</p>
+<section>
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+
+        <div class="card">
+            <h3>Anxiety Severity Prediction App</h3>
+            <p>
+                Machine learning model (KNN) predicting mental health severity among U.S. college students.
+                F1 Score: 0.879 | Recall: 92.7%.
+            </p>
+            <p><strong>Tools:</strong> Python, scikit-learn, Streamlit</p>
+            <a href="https://anxiety-screener-app.streamlit.app" target="_blank">Live App</a><br>
+            <a href="#">GitHub Repo (add link)</a>
+        </div>
+
+        <div class="card">
+            <h3>Health Risk Prediction App</h3>
+            <p>
+                Multi-class classification using XGBoost to predict health risk scores from lifestyle and vitals.
+                Achieved 84% accuracy.
+            </p>
+            <p><strong>Tools:</strong> Streamlit, Python, XGBoost</p>
+            <a href="#">GitHub Repo (add link)</a>
+        </div>
+
+        <div class="card">
+            <h3>COVID-19 Data Aggregation & Insights</h3>
+            <p>
+                Analyzed multi-source datasets using BigQuery to study disparities in infection & vaccination.
+            </p>
+            <p><strong>Tools:</strong> SQL, BigQuery</p>
+            <a href="#">GitHub Repo (add link)</a>
+        </div>
+
+        <div class="card">
+            <h3>Post-COVID CAD Risk Analysis</h3>
+            <p>
+                9-month clinical study analyzing angiography and biomarker patterns among CAD patients.
+            </p>
+            <p><strong>Tools:</strong> Python, Statistics</p>
+            <a href="#">GitHub Repo (add link)</a>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Experience</h2>
+    <p>
+        <strong>Clinical Informatics Analyst Intern – Rohini Super Speciality Hospital</strong><br>
+        July 2021 – July 2023 | India
+    </p>
+    <ul>
+        <li>Optimized EHR workflows for clinical teams and improved documentation accuracy.</li>
+        <li>Analyzed patient data and quality metrics using SQL, Power BI, and Excel.</li>
+        <li>Performed data audits to ensure privacy and compliance with regulatory standards.</li>
+        <li>Supported EHR go-live, training, troubleshooting, and system upgrades.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Education & Certifications</h2>
+    <p><strong>M.S. Health Data Science — Saint Louis University</strong> (GPA 3.97)</p>
+    <p><strong>Doctor of Pharmacy — St. Peter's Institute</strong> (GPA 3.8)</p>
+    <p><strong>Certifications:</strong> CEHRS, HIPAA, Databricks Lakehouse, AI Fundamentals, Stroke Evaluation (Cleveland Clinic)</p>
+</section>
+
+<div class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:suprajamedicherla249@gmail.com">suprajamedicherla249@gmail.com</a></p>
+    <p>GitHub: github.com/suprajamedicherla</p>
+</div>
+
+</body>
+</html>
 </footer>
 
 <script src="script.js"></script>
