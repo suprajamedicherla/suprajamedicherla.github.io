@@ -1,50 +1,33 @@
-// SCROLL REVEAL ANIMATIONS
-const revealElements = document.querySelectorAll(".fade-up, .slide-in");
+// SCROLL REVEAL ANIMATION
+const fadeUpElements = document.querySelectorAll(".fade-up");
 
-// Reveal elements when scrolling
 function revealOnScroll() {
-    const triggerBottom = window.innerHeight * 0.85;
+    fadeUpElements.forEach((el) => {
+        const rect = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
-    revealElements.forEach((el) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < triggerBottom) {
+        if (rect < windowHeight - 50) {
             el.classList.add("visible");
         }
     });
 }
 
-// Trigger on scroll
 window.addEventListener("scroll", revealOnScroll);
-
-// Trigger on page load
-revealOnScroll();
+window.addEventListener("load", revealOnScroll);
 
 
 
-// NAVBAR BACKGROUND CHANGE ON SCROLL
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add("navbar-scrolled");
-    } else {
-        navbar.classList.remove("navbar-scrolled");
-    }
-});
-
-
-
-// OPTIONAL: SMOOTH SCROLL FOR NAV LINKS
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
+// SMOOTH SCROLL FOR NAV LINKS
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
         e.preventDefault();
         const targetID = this.getAttribute("href");
-        const targetEl = document.querySelector(targetID);
+        const targetSection = document.querySelector(targetID);
 
-        if (targetEl) {
+        if (targetSection) {
+            const offset = targetSection.offsetTop - 60; // adjust for navbar
             window.scrollTo({
-                top: targetEl.offsetTop - 60,
+                top: offset,
                 behavior: "smooth"
             });
         }
@@ -53,10 +36,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// OPTIONAL: FLOATING EFFECT INTENSITY CHANGE ON SCROLL
-const profilePic = document.querySelector(".profile-pic");
+// OPTIONAL: LIGHT HOVER FLOAT EFFECT FOR BLOB IMAGE
+const blobImage = document.querySelector(".blob-image");
+
+if (blobImage) {
+    blobImage.addEventListener("mouseover", () => {
+        blobImage.style.transform = "scale(1.03)";
+    });
+
+    blobImage.addEventListener("mouseout", () => {
+        blobImage.style.transform = "scale(1)";
+    });
+}
+
+
+
+// OPTIONAL: CHANGE NAVBAR STYLE ON SCROLL
+const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
-    let scrollValue = window.scrollY / 20;
-    profilePic.style.transform = `translateY(${Math.sin(scrollValue) * 10}px)`;
+    if (window.scrollY > 50) {
+        navbar.style.background = "rgba(243, 238, 231, 0.95)";
+        navbar.style.backdropFilter = "blur(8px)";
+    } else {
+        navbar.style.background = "rgba(243, 238, 231, 0.8)";
+        navbar.style.backdropFilter = "blur(6px)";
+    }
 });
