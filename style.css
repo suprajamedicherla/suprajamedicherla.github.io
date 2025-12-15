@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7fb;
+  color: #222;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #1f7a8c, #022b3a);
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero h2 {
+  font-weight: normal;
+  margin: 15px 0;
+}
+
+.buttons {
+  margin-top: 25px;
+}
+
+.btn, .btn-outline {
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  margin: 5px;
+  display: inline-block;
+}
+
+.btn {
+  background: white;
+  color: #022b3a;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.skills, .projects {
+  padding: 80px 10%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.project {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #022b3a;
+  color: white;
+}
