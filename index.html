@@ -4,177 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supraja Medicherla | Health Informatics & Data Science Portfolio</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f8f9fa;
-            color: #222;
-        }
-        header {
-            padding: 40px;
-            text-align: center;
-            background: #000;
-            color: white;
-        }
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            color: #000;
-            border-left: 4px solid #000;
-            padding-left: 10px;
-        }
-        .skills-grid, .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
-        }
-        .contact {
-            text-align: center;
-            padding: 30px;
-        }
-        a {
-            color: #0056d6;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>SUPRAJA MEDICHERLA</h1>
-    <p>Health Informatics • Data Science • EHR Specialist</p>
-    <p>
-        <a href="mailto:suprajamedicherla249@gmail.com" style="color:white;">Email</a> |
-        <a href="https://github.com/suprajamedicherla" style="color:white;">GitHub</a> |
-        <a href="YOUR-LINKEDIN-URL" style="color:white;">LinkedIn</a>
-    </p>
-</header>
+    <!-- HEADER -->
+    <header>
+        <h1>SUPRAJA MEDICHERLA</h1>
+        <p>Health Informatics • Data Science • EHR Specialist (CEHRS)</p>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        Health Informatics and Data Science professional with experience in EHR workflows, healthcare analytics,
-        and clinical decision support. Skilled in Python, SQL, Power BI, ML modeling, and transforming clinical data
-        into actionable insights that improve patient outcomes and system efficiency.
-    </p>
-</section>
-
-<section>
-    <h2>Skills</h2>
-
-    <div class="skills-grid">
-        <div class="card">
-            <h3>Programming</h3>
-            <p>Python, SQL, R</p>
+        <div class="links">
+            <a href="mailto:suprajamedicherla249@gmail.com">Email</a>
+            <a href="https://github.com/suprajamedicherla" target="_blank">GitHub</a>
+            <a href="YOUR-LINKEDIN-LINK" target="_blank">LinkedIn</a>
+            <a href="tel:+13144775038">+1 (314) 477-5038</a>
         </div>
-        
-        <div class="card">
-            <h3>Machine Learning</h3>
-            <p>KNN, SVM, Random Forest, XGBoost, CNN, RNN, GAN, Logistic Regression</p>
+    </header>
+
+
+    <!-- ABOUT -->
+    <section>
+        <h2>About Me</h2>
+        <p>
+            Health Informatics and Data Science professional with a Master’s in Health Data Science and Certified 
+            Electronic Health Record Specialist (CEHRS). Skilled in healthcare analytics, predictive modeling, and EHR workflow optimization. 
+            Proficient in SQL, Python, Power BI, and clinical data interpretation. Passionate about leveraging informatics to improve 
+            patient outcomes, ensure regulatory compliance, and support innovation in healthcare systems.
+        </p>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section>
+        <h2>Skills</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Programming</h3>
+                <p>Python, SQL, R</p>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning</h3>
+                <p>
+                    KNN, Naïve Bayes, Decision Trees, Random Forest, SVM, Logistic Regression,  
+                    CNN, RNN, FNN, GAN
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Statistical Methods</h3>
+                <p>T-tests, Chi-square, ANOVA, Correlation, Hypothesis Testing, Regression Analysis</p>
+            </div>
+
+            <div class="card">
+                <h3>Visualization Tools</h3>
+                <p>Power BI, Tableau, Looker Studio, Matplotlib, Seaborn, ggplot</p>
+            </div>
+
+            <div class="card">
+                <h3>Healthcare Informatics</h3>
+                <p>
+                    EHR/EMR Management, Record Auditing, ICD-10, CPT, SNOMED CT, HIPAA Compliance
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Platforms & Tools</h3>
+                <p>
+                    BigQuery, Snowflake, Databricks, Google Colab, Jupyter, Pandas, NumPy, Scikit-Learn
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Soft Skills</h3>
+                <p>
+                    Communication, Teamwork, Problem Solving, Time Management, Critical Thinking
+                </p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-            <h3>Tools</h3>
-            <p>Power BI, Tableau, BigQuery, Snowflake, Databricks, Excel</p>
-        </div>
 
-        <div class="card">
-            <h3>Healthcare Informatics</h3>
-            <p>EHR Management, ICD-10, CPT, SNOMED CT, CEHRS Certified, HIPAA</p>
-        </div>
-    </div>
-</section>
+    <!-- PROJECTS -->
+    <section>
+        <h2>Projects</h2>
 
-<section>
-    <h2>Projects</h2>
-
-    <div class="project-grid">
-
-        <div class="card">
+        <div class="project">
             <h3>Anxiety Severity Prediction App</h3>
             <p>
-                Machine learning model (KNN) predicting mental health severity among U.S. college students.
-                F1 Score: 0.879 | Recall: 92.7%.
+                Built a predictive model using KNN to classify anxiety severity among 579 U.S. college students. 
+                Achieved an F1 score of <strong>0.879</strong> and a recall of <strong>92.7%</strong>.  
+                Deployed as a Streamlit-based mental health screening tool.
             </p>
-            <p><strong>Tools:</strong> Python, scikit-learn, Streamlit</p>
-            <a href="https://anxiety-screener-app.streamlit.app" target="_blank">Live App</a><br>
-            <a href="#">GitHub Repo (add link)</a>
+            <p><strong>Tools:</strong> Python, Scikit-Learn, Pandas, SMOTE, Streamlit</p>
+            <a href="https://anxiety-screener-app.streamlit.app" target="_blank">Live App</a>
         </div>
 
-        <div class="card">
+        <div class="project">
             <h3>Health Risk Prediction App</h3>
             <p>
-                Multi-class classification using XGBoost to predict health risk scores from lifestyle and vitals.
-                Achieved 84% accuracy.
+                Multi-class XGBoost model predicting personal health risk based on lifestyle and clinical features.  
+                Engineered a custom Health Risk Score using activity, diet, sleep, and vital signs.
+                Achieved <strong>84% accuracy</strong>. Deployed using Streamlit.
             </p>
-            <p><strong>Tools:</strong> Streamlit, Python, XGBoost</p>
-            <a href="#">GitHub Repo (add link)</a>
+            <p><strong>Tools:</strong> Python, XGBoost, Streamlit, Matplotlib, Pandas</p>
         </div>
 
-        <div class="card">
-            <h3>COVID-19 Data Aggregation & Insights</h3>
+        <div class="project">
+            <h3>COVID-19 Data Aggregation (BigQuery)</h3>
             <p>
-                Analyzed multi-source datasets using BigQuery to study disparities in infection & vaccination.
+                Aggregated large multi-source datasets to analyze trends in COVID-19 infections, vaccination disparities 
+                by socioeconomic status, and environmental factors affecting viral transmission.
             </p>
             <p><strong>Tools:</strong> SQL, BigQuery</p>
-            <a href="#">GitHub Repo (add link)</a>
         </div>
 
-        <div class="card">
-            <h3>Post-COVID CAD Risk Analysis</h3>
+        <div class="project">
+            <h3>Post-COVID Coronary Artery Disease Risk Analysis</h3>
             <p>
-                9-month clinical study analyzing angiography and biomarker patterns among CAD patients.
+                Completed a 9-month clinical research study analyzing CAD patients using biomarkers, angiographic data, 
+                and lab parameters. Conducted statistical tests to evaluate post-COVID complications.
             </p>
-            <p><strong>Tools:</strong> Python, Statistics</p>
-            <a href="#">GitHub Repo (add link)</a>
+            <p><strong>Tools:</strong> Python, T-tests, Clinical Data Analysis</p>
         </div>
 
-    </div>
-</section>
+    </section>
 
-<section>
-    <h2>Experience</h2>
-    <p>
-        <strong>Clinical Informatics Analyst Intern – Rohini Super Speciality Hospital</strong><br>
-        July 2021 – July 2023 | India
-    </p>
-    <ul>
-        <li>Optimized EHR workflows for clinical teams and improved documentation accuracy.</li>
-        <li>Analyzed patient data and quality metrics using SQL, Power BI, and Excel.</li>
-        <li>Performed data audits to ensure privacy and compliance with regulatory standards.</li>
-        <li>Supported EHR go-live, training, troubleshooting, and system upgrades.</li>
-    </ul>
-</section>
 
-<section>
-    <h2>Education & Certifications</h2>
-    <p><strong>M.S. Health Data Science — Saint Louis University</strong> (GPA 3.97)</p>
-    <p><strong>Doctor of Pharmacy — St. Peter's Institute</strong> (GPA 3.8)</p>
-    <p><strong>Certifications:</strong> CEHRS, HIPAA, Databricks Lakehouse, AI Fundamentals, Stroke Evaluation (Cleveland Clinic)</p>
-</section>
+    <!-- EXPERIENCE -->
+    <section>
+        <h2>Professional Experience</h2>
 
-<div class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:suprajamedicherla249@gmail.com">suprajamedicherla249@gmail.com</a></p>
-    <p>GitHub: github.com/suprajamedicherla</p>
-</div>
+        <h3>Clinical Informatics Analyst Intern — Rohini Super Speciality Hospital</h3>
+        <p>July 2021 – July 2023 | Warangal, India</p>
 
-</body>
-</html>
-</footer>
+        <ul>
+            <li>Optimized EHR workflows and documentation templates to improve care coordination.</li>
+            <li>Analyzed patient outcomes, adherence, and quality metrics using SQL, Power BI, and Excel.</li>
+            <li>Performed data audits ensuring compliance with standards equivalent to HIPAA.</li>
+            <li>Developed validation scripts to improve reporting accuracy and reduce manual errors.</li>
+            <li>Supported clinicians during go-live, provided training, and gathered user feedback.</li>
+            <li>Collaborated with quality teams to ensure ICD-10 and CPT documentation accuracy.</li>
+            <li>Worked with IT staff to troubleshoot issues and test EHR updates.</li>
+        </ul>
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section>
+        <h2>Education</h2>
+
+        <p><strong>Master of Science in Health Data Science</strong> — Saint Louis University (GPA: 3.97)</p>
+        <p><strong>Bachelor of Doctor of Pharmacy</strong> — St. Peter's Institute of Pharmaceutical Sciences (GPA: 3.8)</p>
+    </section>
+
+
+    <!-- CERTIFICATIONS -->
+    <section>
+        <h2>Certifications</h2>
+
+        <ul>
+            <li>Certified Electronic Health Record Specialist (CEHRS)</li>
+            <li>HIPAA Compliance Training Certification</li>
+            <li>Databricks Lakehouse Fundamentals</li>
+            <li>Databricks Accredited Generative AI Fundamentals</li>
+            <li>Biomedical Research & Key Personnel — CITI Program</li>
+            <li>Acute Ischemic Stroke Evaluation & Management — Cleveland Clinic</li>
+        </ul>
+    </section>
+
+
+    <!-- PUBLICATION -->
+    <section>
+        <h2>Publication</h2>
+        <p>
+            **SSRN:** Recombinant Alkaline Phosphatase Prevents Acute on Chronic Liver Failure
+        </p>
+    </section>
+
+
+    <!-- CONTACT FOOTER -->
+    <footer>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:suprajamedicherla249@gmail.com">suprajamedicherla249@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/suprajamedicherla" target="_blank">github.com/suprajamedicherla</a></p>
+        <p>Location: USA</p>
+    </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
+
