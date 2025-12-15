@@ -23,25 +23,28 @@
     </ul>
 </nav>
 
-
-<!-- HERO SECTION -->
+<!-- HERO SECTION WITH ORGANIC BLOB IMAGE -->
 <header class="hero">
-    <div class="hero-inner fade-in">
 
-        <!-- Floating Glowing Profile Image -->
-        <div class="profile-wrapper">
-            <div class="glow-ring"></div>
-            <img src="mypic.jpg" alt="Supraja Medicherla" class="profile-pic">
-        </div>
-
-        <h1 class="hero-title">SUPRAJA MEDICHERLA</h1>
-        <p class="hero-subtitle">Health Informatics • Data Science • EHR Specialist (CEHRS)</p>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-glass">View Projects</a>
-            <a href="mailto:suprajamedicherla249@gmail.com" class="btn-outline-glass">Contact Me</a>
+    <div class="hero-left">
+        <div class="blob-container">
+            <img src="mypic.jpg" alt="Supraja Medicherla" class="blob-image">
+            <div class="blob-shape"></div>
         </div>
     </div>
+
+    <div class="hero-right fade-in">
+        <h1 class="hero-title">Supraja Medicherla</h1>
+        <p class="hero-subtitle">
+            Health Informatics • Data Science • EHR Specialist (CEHRS)
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="#contact" class="btn-outline">Contact Me</a>
+        </div>
+    </div>
+
 </header>
 
 
@@ -63,16 +66,14 @@
 <section id="education" class="section fade-up">
     <h2>Education</h2>
 
-    <div class="glass-card edu-card">
-        <h3>Master of Science in Health Data Science</h3>
-        <p><strong>Saint Louis University</strong> — GPA: 3.97</p>
-        <span class="edu-year">2023 – 2025</span>
+    <div class="section-card">
+        <h3>Master of Science — Health Data Science</h3>
+        <p>Saint Louis University — GPA: 3.97</p>
     </div>
 
-    <div class="glass-card edu-card">
+    <div class="section-card">
         <h3>Doctor of Pharmacy (Pharm.D)</h3>
-        <p><strong>St. Peter's Institute of Pharmaceutical Sciences</strong> — GPA: 3.8</p>
-        <span class="edu-year">2017 – 2023</span>
+        <p>St. Peter's Institute of Pharmaceutical Sciences — GPA: 3.8</p>
     </div>
 </section>
 
@@ -81,21 +82,20 @@
 <section id="experience" class="section fade-up">
     <h2>Experience</h2>
 
-    <div class="timeline">
+    <div class="section-card">
+        <h3>Clinical Informatics Analyst Intern</h3>
+        <p><strong>Rohini Super Speciality Hospital</strong> — 2021 to 2023</p>
 
-        <div class="timeline-item glass-card">
-            <h3>Clinical Informatics Analyst Intern</h3>
-            <span class="timeline-date">Rohini Super Speciality Hospital | 2021–2023</span>
-            <p>
-                • Enhanced EHR workflows and documentation templates<br>
-                • Analyzed clinical data using SQL, Power BI, and Excel<br>
-                • Ensured compliance with data standards equivalent to HIPAA<br>
-                • Developed validation scripts improving reporting accuracy<br>
-                • Supported EHR go-live training, testing, and troubleshooting<br>
-                • Organized documentation workflows aligning ICD-10 & CPT<br>
-            </p>
-        </div>
-
+        <ul>
+            <li>Assisted clinical teams in managing and optimizing Electronic Health Record (EHR) systems to enhance documentation accuracy and care coordination</li>
+            <li>Collaborated with physicians, nurses, and administrative staff to streamline digital workflows and standardize clinical documentation templates</li>
+            <li>Analyzed and visualized patient outcomes, treatment adherence, and quality metrics using SQL, Power BI, and Excel</li>
+            <li>Performed data audits to ensure compliance with healthcare data privacy and integrity standards equivalent to HIPAA</li>
+            <li>Developed and deployed data validation scripts and process checks to enhance reporting accuracy and minimize manual errors</li>
+            <li>Provided user training and go-live support, gathering feedback to guide EHR feature enhancements and process improvements</li>
+            <li>Collaborated with quality and compliance teams to align documentation practices with clinical guidelines and regulatory standards (ICD-10, CPT)</li>
+            <li>Worked with IT staff to troubleshoot user issues, test EHR updates, and evaluate system integration performance</li>
+        </ul>
     </div>
 </section>
 
@@ -103,27 +103,35 @@
 <!-- SKILLS SECTION -->
 <section id="skills" class="section fade-up">
     <h2>Skills</h2>
-    <div class="grid">
-        <div class="glass-card skill-card"> 
-            <h3>Programming</h3><p>Python, SQL, R</p>
+
+    <div class="skills-grid">
+
+        <div class="section-card">
+            <h3>Programming</h3>
+            <p>Python, SQL, R</p>
         </div>
-        <div class="glass-card skill-card"> 
+        
+        <div class="section-card"> 
             <h3>Machine Learning</h3>
             <p>KNN, SVM, Random Forest, XGBoost, CNN, RNN, GAN</p>
         </div>
-        <div class="glass-card skill-card"> 
+        
+        <div class="section-card"> 
             <h3>Statistics</h3>
             <p>T-tests, Chi-square, ANOVA, Regression, Hypothesis Testing</p>
         </div>
-        <div class="glass-card skill-card"> 
+        
+        <div class="section-card"> 
             <h3>Visualization</h3>
             <p>Power BI, Tableau, Looker Studio, Matplotlib, Seaborn</p>
         </div>
-        <div class="glass-card skill-card"> 
+        
+        <div class="section-card"> 
             <h3>Healthcare Informatics</h3>
             <p>EHR/EMR, ICD-10, CPT, SNOMED CT, HIPAA Compliance</p>
         </div>
-        <div class="glass-card skill-card"> 
+        
+        <div class="section-card"> 
             <h3>Platforms & Tools</h3>
             <p>BigQuery, Snowflake, Databricks, Jupyter, Pandas, NumPy</p>
         </div>
@@ -137,31 +145,32 @@
 
     <div class="project-grid">
 
-        <div class="glass-card project-card slide-in">
+        <div class="section-card">
             <h3>Anxiety Severity Prediction App</h3>
-            <p>ML model achieving F1 score of 0.879 to classify anxiety levels among U.S. college students.</p>
-            <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="btn-small">Live App</a>
+            <p>Built a KNN model achieving F1 score of 0.879 to classify anxiety levels among U.S. college students.</p>
+            <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="project-link">Live App</a>
         </div>
 
-        <div class="glass-card project-card slide-in">
+        <div class="section-card">
             <h3>Health Risk Prediction App</h3>
-            <p>XGBoost multi-class model predicting health risk using lifestyle & clinical data (84% accuracy).</p>
+            <p>Built a Multi-class XGBoost model predicting personal health risk from lifestyle + clinical features</p>
         </div>
 
-        <div class="glass-card project-card slide-in">
+        <div class="section-card">
             <h3>COVID-19 BigQuery Analysis</h3>
-            <p>Integrated multi-source datasets to identify infection trends & disparities.</p>
+            <p>Analyzed multi-source health data to evaluate infection trends and vaccination disparities</p>
         </div>
 
-        <div class="glass-card project-card slide-in">
+        <div class="section-card">
             <h3>Post-COVID CAD Risk Study</h3>
-            <p>Clinical analysis of biomarkers & angiographic patterns among CAD patients.</p>
+            <p>Conducted a 9-month prospective clinical study on CAD patients in a cardiology department in Telangana, India</p>
+            <p>Analyzed biomarkers, angiographic data, and lab parameters using T-tests to assess post-COVID complications</p>
         </div>
 
     </div>
 </section>
 
-
+    
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="section fade-up">
     <h2>Certifications</h2>
@@ -181,7 +190,7 @@
 <section id="publication" class="section fade-up">
     <h2>Publication</h2>
 
-    <div class="glass-card pub-card">
+    <div class="section-card">
         <h3>Recombinant Alkaline Phosphatase Prevents Acute on Chronic Liver Failure</h3>
         <p>Published on SSRN</p>
     </div>
