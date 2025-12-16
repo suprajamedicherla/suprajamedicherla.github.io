@@ -9,27 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. CSS STYLES (THE COLORS) --- */
+        /* --- 1. CSS VARIABLES --- */
         :root {
-            /* Dark Purple/Blue Theme */
             --bg-dark: #0f0c29;
             --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            
-            /* Glassmorphism Variables */
-            --glass-bg: rgba(255, 255, 255, 0.05); /* See-through glass */
+            --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
-            
-            /* Text Colors */
             --text-white: #ffffff;
             --text-gray: #b3b3b3;
-            
-            /* Neon Accents */
             --accent-pink: #ff007f;
             --accent-cyan: #00e5ff;
             --accent-purple: #7b2cbf;
+            --accent-gold: #ffd700;
         }
 
-        /* Reset & Body */
         * { box-sizing: border-box; }
         
         body {
@@ -45,7 +38,7 @@
             align-items: flex-start; 
         }
 
-        /* --- 2. MOVING BACKGROUND BLOBS --- */
+        /* --- 2. BACKGROUND BLOBS --- */
         .background-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -60,7 +53,6 @@
             border-radius: 50%;
             animation: float 10s infinite alternate;
         }
-
         .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--accent-purple); }
         .blob-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: var(--accent-cyan); animation-delay: -2s; }
         .blob-3 { top: 40%; left: 30%; width: 30vw; height: 30vw; background: var(--accent-pink); animation-delay: -4s; }
@@ -81,7 +73,7 @@
             margin-bottom: 40px;
         }
 
-        /* --- 4. CARD STYLING --- */
+        /* --- 4. CARD STYLING & ANIMATION --- */
         .card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -94,6 +86,23 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            
+            /* ANIMATION START STATE */
+            opacity: 0; 
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        /* Staggered Delay for "Pop-in" effect */
+        .hero { animation-delay: 0.1s; }
+        .skills { animation-delay: 0.2s; }
+        .education { animation-delay: 0.3s; }
+        .certs { animation-delay: 0.4s; }
+        .project-featured { animation-delay: 0.5s; }
+        .project-small { animation-delay: 0.6s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .card:hover {
@@ -101,114 +110,130 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* --- NEW: HERO CARD LAYOUT (Text Left, Image Right) --- */
+        /* --- 5. SECTION SPECIFICS --- */
+        
+        /* HERO */
         .hero { 
             grid-column: span 2;
-            flex-direction: row; /* Align items side-by-side */
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
         }
-
-        .hero-content {
-            flex: 1; /* Text takes available space */
-        }
-
-        /* --- NEW: PROFILE IMAGE STYLING --- */
-        .profile-img-container {
-            flex-shrink: 0; /* Don't squish the image */
-        }
-
+        .hero-content { flex: 1; }
+        .profile-img-container { flex-shrink: 0; }
         .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%; /* Circle shape */
-            object-fit: cover; /* Ensures image doesn't stretch */
-            border: 3px solid rgba(0, 229, 255, 0.3); /* Cyan glass border */
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); /* Subtle glow */
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
         }
 
+        /* EDUCATION TIMELINE */
+        .education { grid-column: span 2; }
+        .timeline-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        /* The connecting line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 24px; /* Center of icon */
+            top: 50px;
+            bottom: -20px;
+            width: 2px;
+            background: rgba(255,255,255,0.1);
+        }
+        .timeline-item:last-child::before { display: none; }
+        
+        .edu-icon {
+            width: 50px; height: 50px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+            z-index: 1; /* Sit on top of line */
+        }
+        .edu-content h4 { margin: 0 0 5px 0; font-size: 1.1rem; color: var(--text-white); }
+        .edu-content span { font-size: 0.9rem; color: var(--accent-cyan); font-weight: 600; }
+        .edu-content p { font-size: 0.9rem; margin: 5px 0 0 0; }
 
-        /* --- 5. TEXT & ELEMENTS --- */
+        /* CERTIFICATIONS */
+        .certs { grid-column: span 1; }
+        .cert-list { display: flex; flex-direction: column; gap: 10px; }
+        .cert-badge {
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(0, 229, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            transition: background 0.2s;
+        }
+        .cert-badge:hover { background: rgba(0, 229, 255, 0.15); }
+        .cert-text { font-size: 0.85rem; font-weight: 600; color: #e0e0e0; }
+        .check-icon { color: var(--accent-cyan); }
+
+        /* TYPOGRAPHY & BUTTONS */
         h1 { font-size: 2.5rem; margin: 10px 0; line-height: 1.1; font-weight: 800; }
         h2 { font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700; }
-        h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 10px; }
+        h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 15px; }
         p { color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
-
+        
         .gradient-text {
             background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .badge {
             background: rgba(0, 229, 255, 0.1);
             color: var(--accent-cyan);
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 10px;
+            font-size: 0.75rem; font-weight: 700;
+            display: inline-block; margin-bottom: 10px;
             border: 1px solid rgba(0, 229, 255, 0.2);
         }
 
-        /* --- 6. BUTTONS --- */
         .btn-group { display: flex; gap: 15px; margin-top: auto; }
-
         .btn-glow {
             background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
+            color: white; padding: 12px 24px; border-radius: 30px;
+            text-decoration: none; font-weight: 600;
             box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-            transition: box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
+            border: none; cursor: pointer; transition: transform 0.2s;
         }
-        .btn-glow:hover { box-shadow: 0 0 25px rgba(255, 0, 127, 0.7); }
-
+        .btn-glow:hover { transform: scale(1.05); }
         .btn-ghost {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
+            background: transparent; border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 12px 24px; border-radius: 30px;
+            text-decoration: none; font-weight: 600;
         }
         .btn-ghost:hover { background: rgba(255,255,255,0.1); }
 
-        /* --- 7. TAGS --- */
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem; padding: 6px 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
         }
         .tag.highlight { border-color: var(--accent-cyan); color: var(--accent-cyan); }
 
-        /* --- 8. RESPONSIVE DESIGN --- */
         .skills { grid-column: span 1; }
         .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
         .project-small { grid-column: span 1; }
 
         @media (max-width: 768px) {
             .glass-container { grid-template-columns: 1fr; }
-            /* Stack items vertically on mobile */
-            .hero { 
-                grid-column: span 1; 
-                flex-direction: column-reverse; /* Put image on top on mobile */
-                text-align: center;
-            }
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero, .skills, .education, .certs, .project-featured, .project-small { grid-column: span 1; }
+            .profile-img { width: 140px; height: 140px; }
             .btn-group { justify-content: center; }
-            
-            .skills, .project-featured, .project-small { grid-column: span 1; }
-            h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -228,14 +253,13 @@
                 <h1 class="gradient-text">Supraja Medicherla</h1>
                 <p>
                     Bridging the gap between <strong>Clinical Pharmacy</strong> and <strong>Data Science</strong>. 
-                    Experienced in EHR data management, analytics, and patient outcomes.
+                    [cite_start]Experienced in EHR data management, analytics, and patient outcomes[cite: 5, 6].
                 </p>
                 <div class="btn-group">
                     <a href="mailto:suprajamedicherla249@gmail.com" class="btn-glow">Contact Me</a>
                     <a href="https://www.linkedin.com/in/suprajamedicherla/" target="_blank" class="btn-ghost">LinkedIn</a>
                 </div>
             </div>
-            
             <div class="profile-img-container">
                 <img src="mypic.jpg" alt="Supraja Medicherla" class="profile-img">
             </div>
@@ -255,12 +279,56 @@
             </div>
         </div>
 
+        <div class="card education">
+            <h3>Academic Journey</h3>
+            
+            <div class="timeline-item">
+                <div class="edu-icon">🧬</div>
+                <div class="edu-content">
+                    <h4>MS Health Data Science</h4>
+                    <span>Saint Louis University • GPA 3.97</span>
+                    [cite_start]<p>Focus on Healthcare Analytics, EHR Data, and Predictive Modeling[cite: 10, 11, 12].</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="edu-icon">💊</div>
+                <div class="edu-content">
+                    <h4>Doctor of Pharmacy (Pharm.D)</h4>
+                    <span>St. Peter's Institute • GPA 3.8</span>
+                    [cite_start]<p>Clinical expertise in medication therapy management and patient counseling[cite: 13].</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card certs">
+            <h3>Certifications</h3>
+            <div class="cert-list">
+                <div class="cert-badge">
+                    <span class="check-icon">✓</span>
+                    <span class="cert-text">Certified EHR Specialist (CEHRS)</span>
+                </div>
+                <div class="cert-badge">
+                    <span class="check-icon">✓</span>
+                    <span class="cert-text">Databricks Lakehouse Fundamentals</span>
+                </div>
+                <div class="cert-badge">
+                    <span class="check-icon">✓</span>
+                    <span class="cert-text">Generative AI Fundamentals</span>
+                </div>
+                <div class="cert-badge">
+                    <span class="check-icon">✓</span>
+                    <span class="cert-text">CITI Biomedical Research</span>
+                </div>
+            </div>
+        </div>
+
         <div class="card project-featured">
             <h3>Featured Capstone</h3>
             <h2>Anxiety Severity Predictor</h2>
             <p>
                 A Machine Learning model (KNN) classifying anxiety levels in college students.
-                Achieved <strong>92.7% Recall</strong>.
+                [cite_start]Achieved <strong>92.7% Recall</strong>[cite: 42].
             </p>
             <div class="btn-group">
                 <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="btn-glow">Launch Live App 🚀</a>
@@ -270,14 +338,14 @@
         <div class="card project-small">
             <h3>XGBoost Model</h3>
             <h2>Health Risk App</h2>
-            <p>Assessing individual health risks with <strong>84% accuracy</strong> using lifestyle data.</p>
+            [cite_start]<p>Assessing individual health risks with <strong>84% accuracy</strong> using lifestyle data[cite: 37].</p>
             <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
         </div>
 
         <div class="card project-small">
             <h3>Data Analysis</h3>
             <h2>COVID-19 SQL Study</h2>
-            <p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>.</p>
+            [cite_start]<p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>[cite: 28].</p>
             <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
         </div>
 
