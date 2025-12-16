@@ -1,179 +1,210 @@
-/* --- GLOBAL VARIABLES --- */
-:root { 
-    --bg-color: #f3f4f6;          /* Light Grey Background */
-    --card-bg: #ffffff;           /* White Card Background */
-    --text-primary: #111827;      /* Dark Grey Text */
-    --text-secondary: #6b7280;    /* Muted Text */
-    --accent-color: #0ea5e9;      /* Medical Blue */
-    --accent-hover: #0284c7;      /* Darker Blue for hover states */
-    --dark-card-bg: #1e293b;      /* Dark Blue/Grey for Skills card */
-    --dark-card-text: #f8fafc;    /* White text for dark card */
+/* --- 1. COLOR PALETTE & VARIABLES --- */
+:root {
+    --bg-deep: #0f0c29;
+    --glass-bg: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-white: #ffffff;
+    --text-mute: #aeb2b8;
+    
+    /* Vibrant Gradients */
+    --gradient-1: #302b63;
+    --gradient-2: #24243e;
+    --accent-pink: #ff00cc;
+    --accent-teal: #333399;
+    --accent-cyan: #00d2ff;
 }
 
-/* --- RESET & BODY --- */
-* { 
-    box-sizing: border-box; 
-}
-
-body { 
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-    background-color: var(--bg-color); 
-    color: var(--text-primary); 
-    padding: 2rem; 
-    margin: 0; 
-    line-height: 1.6;
-}
-
-/* --- GRID LAYOUT (The Bento Box) --- */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-    grid-template-rows: auto;
-    gap: 1.5rem; /* Space between cards */
-    max-width: 1100px;
-    margin: 0 auto; /* Center the grid on screen */
-}
-
-/* --- CARD STYLING --- */
-.card { 
-    background: var(--card-bg); 
-    border-radius: 24px; 
-    padding: 2rem; 
-    /* Subtle shadow for depth */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
-    transition: all 0.3s ease; 
+/* --- 2. SETUP & BACKGROUND ANIMATION --- */
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-white);
+    min-height: 100vh;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.5);
-    position: relative;
 }
 
-/* Card Hover Animation */
-.card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
+/* The Moving Blobs Background */
+.background-blobs {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 
-/* --- TYPOGRAPHY --- */
-h1 { 
-    font-size: 2.25rem; 
-    font-weight: 800; 
-    margin: 0 0 10px 0; 
-    letter-spacing: -0.02em; 
-    color: var(--text-primary); 
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite alternate;
 }
 
-h2 { 
-    font-size: 1.5rem; 
-    font-weight: 700; 
-    margin: 0 0 10px 0; 
+.blob-1 {
+    top: -10%; left: -10%; width: 50vw; height: 50vw;
+    background: #ff00cc;
+    animation-delay: 0s;
+}
+.blob-2 {
+    bottom: -10%; right: -10%; width: 40vw; height: 40vw;
+    background: #00d2ff;
+    animation-delay: -2s;
+}
+.blob-3 {
+    top: 40%; left: 40%; width: 30vw; height: 30vw;
+    background: #333399;
+    animation-delay: -4s;
 }
 
-h3 { 
-    font-size: 0.75rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-    color: var(--accent-color); 
-    margin-bottom: 12px; 
-    font-weight: 700; 
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 50px); }
 }
 
-p { 
-    font-size: 1rem; 
-    color: var(--text-secondary); 
-    margin: 0 0 1rem 0; 
+/* --- 3. GLASS GRID LAYOUT --- */
+.glass-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    padding: 40px 20px;
+    width: 100%;
 }
 
-/* --- BUTTONS & LINKS --- */
-.btn {
+/* --- 4. GLASS CARD STYLING --- */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- 5. TYPOGRAPHY & ELEMENTS --- */
+h1 { font-size: 2.5rem; margin: 10px 0; line-height: 1.1; }
+h2 { font-size: 1.5rem; margin: 0 0 10px 0; }
+h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 10px; }
+p { color: var(--text-mute); line-height: 1.6; margin-bottom: 20px; }
+
+/* The Gradient Text Effect */
+.gradient-text {
+    background: linear-gradient(90deg, #fff, #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    background: rgba(0, 210, 255, 0.1);
+    color: #00d2ff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
     display: inline-block;
-    background-color: var(--text-primary);
+}
+
+/* --- 6. BUTTONS --- */
+.btn-group { display: flex; gap: 15px; margin-top: 20px; }
+
+.btn-glow {
+    background: linear-gradient(45deg, #ff00cc, #333399);
     color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-    width: fit-content;
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.4);
+    transition: box-shadow 0.3s;
 }
+.btn-glow:hover { box-shadow: 0 0 25px rgba(255, 0, 204, 0.7); }
 
-.btn:hover { 
-    background-color: var(--accent-color); 
-}
-
-.link-text {
-    color: var(--text-primary);
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 2px;
 }
+.btn-ghost:hover { background: rgba(255,255,255,0.1); }
 
-.link-text:hover { 
-    color: var(--accent-color); 
-}
-
-/* --- SPECIFIC CARD LAYOUTS --- */
-
-/* 1. Intro Card (Top Left) */
-.intro { 
-    grid-column: span 2; 
-    grid-row: span 1; 
-}
-
-/* 2. Skills Card (Right Tower) */
-.skills { 
-    grid-column: span 1; 
-    grid-row: span 2; 
-    background: var(--dark-card-bg); 
-    color: var(--dark-card-text); 
-}
-/* Override text colors for dark mode card */
-.skills h3 { color: #38bdf8; } 
-.skills p { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0.5rem;}
+/* --- 7. SPECIFIC CARD LAYOUTS --- */
+.hero { grid-column: span 2; }
+.skills { grid-column: span 1; display: flex; flex-direction: column; justify-content: center; }
 
 /* Skill Tags */
-.tag-container { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 8px; 
-    margin-bottom: 20px; 
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+/* Colorful borders for tags */
+.tag.python { border-color: #ffd700; color: #ffd700; }
+.tag.sql { border-color: #00d2ff; color: #00d2ff; }
+.tag.tableau { border-color: #ff00cc; color: #ff00cc; }
+
+/* Stats in Hero */
+.stats-row { display: flex; gap: 30px; margin: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;}
+.stat { display: flex; flex-direction: column; }
+.stat-num { font-weight: 900; font-size: 1.2rem; color: white; }
+.stat-label { font-size: 0.7rem; color: var(--text-mute); text-transform: uppercase; }
+
+/* Projects */
+.project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,210,255,0.05)); }
+.project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.status-dot { background: #00ff88; color: #004422; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; font-weight: bold; }
+.project-small { grid-column: span 1; } /* Wait, grid is 3 cols. So small projects take 1 each? Let's fix below */
+
+/* --- 8. RESPONSIVE --- */
+/* Adjust grid for Project small cards */
+.project-small:nth-child(5), .project-small:nth-child(6) {
+   /* This handles the logic in HTML structure. 
+      Row 1: Hero (2) + Skills (1)
+      Row 2: Featured (3)
+      Row 3: Small (1) + Small (1) ... Need a spacer or adjust span.
+   */
+}
+.glass-container {
+    /* Let's make the last row auto-fit */
+    grid-template-columns: repeat(2, 1fr); 
+}
+.hero { grid-column: span 2; }
+.skills { grid-column: span 2; } /* Full width on mobile, or side on desktop */
+.project-featured { grid-column: span 2; }
+.project-small { grid-column: span 1; }
+
+@media (min-width: 768px) {
+    .glass-container { grid-template-columns: repeat(3, 1fr); }
+    .hero { grid-column: span 2; }
+    .skills { grid-column: span 1; }
+    .project-featured { grid-column: span 2; }
+    .project-small { grid-column: span 1; height: 100%;}
+    /* Let's make the last project span full or adjust grid */
+    .project-small:last-child { grid-column: span 1; }
 }
 
-.tag { 
-    background: rgba(255,255,255,0.15); 
-    padding: 4px 10px; 
-    border-radius: 6px; 
-    font-size: 0.8rem; 
-}
-
-/* 3. Social Links */
-.socials { 
-    grid-column: span 1; 
-    grid-row: span 1; 
-}
-.social-list p { margin-bottom: 0.5rem; }
-
-/* 4. Project Cards */
-.project-1 { grid-column: span 2; grid-row: span 1; } /* Main Feature */
-.project-2 { grid-column: span 1; grid-row: span 1; } 
-.project-3 { grid-column: span 1; grid-row: span 1; }
-
-/* --- RESPONSIVE DESIGN (MOBILE) --- */
 @media (max-width: 768px) {
-    .bento-grid { 
-        grid-template-columns: 1fr; /* Stack everything in 1 column */
-    }
-    
-    /* Make all cards span the full width */
-    .intro, .skills, .socials, .project-1, .project-2, .project-3 { 
-        grid-column: span 1; 
-        grid-row: auto; 
-    }
-    
-    body { 
-        padding: 1rem; /* Less padding on small screens */
-    }
+    .glass-container { display: flex; flex-direction: column; }
+    h1 { font-size: 2rem; }
 }
+
+footer { margin-top: auto; padding: 20px; font-size: 0.8rem; opacity: 0.6; }
+.link-arrow { color: #00d2ff; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+.tech-stack { display: block; margin-top: 10px; font-size: 0.8rem; opacity: 0.7; }
+.icon-link { color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;}
