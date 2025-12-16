@@ -6,229 +6,100 @@
     <title>Supraja Medicherla | Health Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- 1. GLOBAL VARIABLES & RESET --- */
-        :root { 
-            --bg-color: #f3f4f6; 
-            --card-bg: #ffffff; 
-            --text-primary: #111827; 
-            --text-secondary: #6b7280; 
-            --accent-color: #0ea5e9; /* Medical Blue */
-            --accent-hover: #0284c7;
-            --dark-card-bg: #1e293b;
-            --dark-card-text: #f8fafc;
-        }
-
-        * { box-sizing: border-box; }
-
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg-color); 
-            color: var(--text-primary); 
-            padding: 2rem; 
-            margin: 0; 
-            line-height: 1.5;
-        }
-        
-        /* --- 2. BENTO GRID LAYOUT --- */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto;
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* --- 3. CARD STYLING --- */
-        .card { 
-            background: var(--card-bg); 
-            border-radius: 24px; 
-            padding: 2rem; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
-            transition: all 0.3s ease; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-        
-        /* Hover Effect: Lifts up slightly */
-        .card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
-        }
-
-        /* --- 4. TYPOGRAPHY --- */
-        h1 { font-size: 2.25rem; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -0.02em; color: var(--text-primary); }
-        h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 10px 0; }
-        h3 { 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            color: var(--accent-color); 
-            margin-bottom: 12px; 
-            font-weight: 700; 
-        }
-        p { font-size: 1rem; color: var(--text-secondary); margin: 0 0 1rem 0; }
-        
-        /* --- 5. BUTTONS & LINKS --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--text-primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-            width: fit-content;
-        }
-        .btn:hover { background-color: var(--accent-color); }
-
-        .link-text {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 2px solid var(--accent-color);
-        }
-        .link-text:hover { color: var(--accent-color); }
-
-        /* --- 6. SPECIFIC CARD STYLES --- */
-        
-        /* Intro Card (Top Left) */
-        .intro { grid-column: span 2; grid-row: span 1; }
-        
-        /* Skills Card (Right Tall Tower) - Dark Theme */
-        .skills { 
-            grid-column: span 1; 
-            grid-row: span 2; 
-            background: var(--dark-card-bg); 
-            color: var(--dark-card-text); 
-        }
-        .skills h3 { color: #38bdf8; } /* Lighter blue for dark background */
-        .skills p { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0.5rem;}
-        
-        /* Tag pills for skills */
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .tag { 
-            background: rgba(255,255,255,0.15); 
-            padding: 4px 10px; 
-            border-radius: 6px; 
-            font-size: 0.8rem; 
-        }
-
-        /* Socials Card */
-        .socials { grid-column: span 1; grid-row: span 1; }
-        .social-list p { margin-bottom: 0.5rem; }
-
-        /* Project Cards */
-        .project-1 { grid-column: span 2; grid-row: span 1; } /* Main Feature */
-        .project-2 { grid-column: span 1; grid-row: span 1; } 
-        .project-3 { grid-column: span 1; grid-row: span 1; }
-
-        /* --- 7. RESPONSIVE DESIGN (Mobile) --- */
-        @media (max-width: 768px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .intro, .skills, .socials, .project-1, .project-2, .project-3 { grid-column: span 1; grid-row: auto; }
-            body { padding: 1rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="bento-grid">
-    
-    <div class="card intro">
-        <h3>MS HEALTH DATA SCIENCE + PHARM.D</h3>
-        <h1>Supraja Medicherla</h1>
-        <p>
-            I combine clinical expertise with data science to solve healthcare problems. 
-            Experienced in <strong>EHR data management</strong>, <strong>Machine Learning</strong>, and <strong>Patient Safety</strong>.
-        </p>
-        <a href="mailto:suprajamedicherla249@gmail.com" class="btn">Get in Touch</a>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-    <div class="card socials">
-        <h3>NETWORK</h3>
-        <div class="social-list">
-            <p><a href="https://linkedin.com/in/suprajamedicherla" class="link-text">LinkedIn ↗</a></p>
-            <p><a href="https://github.com/suprajamedicherla" class="link-text">GitHub ↗</a></p>
-            <p><a href="mailto:suprajamedicherla249@gmail.com" class="link-text">Email ↗</a></p>
-        </div>
-    </div>
-
-    <div class="card skills">
-        <h3>TECHNICAL STACK</h3>
+    <div class="glass-container">
         
-        <p><strong>Languages</strong></p>
-        <div class="tag-container">
-            <span class="tag">Python</span>
-            <span class="tag">SQL</span>
-            <span class="tag">R</span>
-        </div>
-        
-        <p><strong>Data & BI</strong></p>
-        <div class="tag-container">
-            <span class="tag">Tableau</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">BigQuery</span>
-            <span class="tag">Pandas</span>
+        <div class="card hero">
+            <div class="badge">Pharm.D + Data Science</div>
+            <h1 class="gradient-text">Supraja Medicherla</h1>
+            <p>
+                I transform complex <strong>EHR data</strong> into actionable clinical insights. 
+                Bridging the gap between patient care and predictive analytics.
+            </p>
+            <div class="stats-row">
+                <div class="stat">
+                    <span class="stat-num">3+</span>
+                    <span class="stat-label">Major Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">3.97</span>
+                    <span class="stat-label">GPA (MS)</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">SQL</span>
+                    <span class="stat-label">Expertise</span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="mailto:suprajamedicherla249@gmail.com" class="btn-glow">Contact Me</a>
+                <a href="https://linkedin.com/in/suprajamedicherla" target="_blank" class="btn-ghost">LinkedIn</a>
+            </div>
         </div>
 
-        <p><strong>Clinical Tech</strong></p>
-        <div class="tag-container">
-            <span class="tag">EHR Systems</span>
-            <span class="tag">ICD-10</span>
-            <span class="tag">HIPAA</span>
-            <span class="tag">SNOMED CT</span>
+        <div class="card skills">
+            <h3>Technical Arsenal</h3>
+            <div class="tag-cloud">
+                <span class="tag python">Python 🐍</span>
+                <span class="tag sql">SQL 🗄️</span>
+                <span class="tag r-lang">R 📊</span>
+                <span class="tag tableau">Tableau 🎨</span>
+                <span class="tag ml">Machine Learning 🤖</span>
+                <span class="tag ehr">EHR Systems 🏥</span>
+                <span class="tag hipaa">HIPAA 🔒</span>
+                <span class="tag bigquery">BigQuery ☁️</span>
+            </div>
         </div>
 
-        <p><strong>Machine Learning</strong></p>
-        <div class="tag-container">
-            <span class="tag">Scikit-Learn</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">TensorFlow</span>
+        <div class="card project-featured">
+            <div class="project-header">
+                <h3> Featured Capstone </h3>
+                <span class="status-dot">Live App</span>
+            </div>
+            <h2>Anxiety Severity Predictor</h2>
+            <p>
+                A Machine Learning model (KNN) classifying anxiety levels in college students.
+                Achieved <strong>92.7% Recall</strong>.
+            </p>
+            <div class="project-links">
+                <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="link-arrow">Launch App ↗</a>
+                <span class="tech-stack">Streamlit • Python • Scikit-Learn</span>
+            </div>
         </div>
+
+        <div class="card project-small">
+            <h3>XGBoost Model</h3>
+            <h2>Health Risk App</h2>
+            <p>Assessing individual health risks with 84% accuracy using lifestyle data.</p>
+            <a href="https://github.com/suprajamedicherla" target="_blank" class="icon-link">
+                View Code <img src="https://simpleicons.org/icons/github.svg" width="16" style="filter: invert(1);">
+            </a>
+        </div>
+
+        <div class="card project-small">
+            <h3>Data Analysis</h3>
+            <h2>COVID-19 SQL Study</h2>
+            <p>Analyzing vaccine disparities and infection rates using Google BigQuery.</p>
+            <a href="https://github.com/suprajamedicherla" target="_blank" class="icon-link">
+                View Code <img src="https://simpleicons.org/icons/github.svg" width="16" style="filter: invert(1);">
+            </a>
+        </div>
+
     </div>
 
-    <div class="card project-1">
-        <h3>FEATURED PROJECT</h3>
-        <h2>Anxiety Severity Predictor</h2>
-        <p>
-            Designed a predictive model to classify anxiety severity among college students. 
-            Achieved <strong>92.7% recall</strong> using a Tuned KNN classifier. 
-            Deployed as an interactive web app.
-        </p>
-        <div style="margin-top: auto;">
-            <a href="https://anxiety-screener-app.streamlit.app" class="btn" target="_blank">Launch Live App</a>
-            <span style="margin-left: 15px; font-size: 0.9rem; color: var(--text-secondary);">Built with Python & Streamlit</span>
-        </div>
-    </div>
-
-    <div class="card project-2">
-        <h3>ML APPLICATION</h3>
-        <h2>Health Risk App</h2>
-        <p>
-            A multi-class classification tool using <strong>XGBoost</strong> to assess health risks based on lifestyle data. 
-            Achieved <strong>84% accuracy</strong>.
-        </p>
-        <a href="https://github.com/suprajamedicherla" class="link-text">View Code ↗</a>
-    </div>
-
-    <div class="card project-3">
-        <h3>DATA ANALYSIS</h3>
-        <h2>COVID-19 SQL Study</h2>
-        <p>
-            Aggregated multi-source public health data using <strong>BigQuery (SQL)</strong> to evaluate vaccine uptake disparities.
-        </p>
-        <a href="https://github.com/suprajamedicherla" class="link-text">View Code ↗</a>
-    </div>
-
-</div>
+    <footer>
+        <p>© <span id="year"></span> Supraja Medicherla. Built with Code & Science.</p>
+    </footer>
 
 </body>
 </html>
