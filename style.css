@@ -1,268 +1,179 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- GLOBAL VARIABLES --- */
+:root { 
+    --bg-color: #f3f4f6;          /* Light Grey Background */
+    --card-bg: #ffffff;           /* White Card Background */
+    --text-primary: #111827;      /* Dark Grey Text */
+    --text-secondary: #6b7280;    /* Muted Text */
+    --accent-color: #0ea5e9;      /* Medical Blue */
+    --accent-hover: #0284c7;      /* Darker Blue for hover states */
+    --dark-card-bg: #1e293b;      /* Dark Blue/Grey for Skills card */
+    --dark-card-text: #f8fafc;    /* White text for dark card */
 }
 
-/* GLOBAL */
-body {
-    font-family: "Inter", "Segoe UI", sans-serif;
-    background: #f3eee7; /* warm beige */
-    color: #3b3b3b;
-    overflow-x: hidden;
+/* --- RESET & BODY --- */
+* { 
+    box-sizing: border-box; 
 }
 
-/* ---------- NAVBAR ---------- */
-.navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(243, 238, 231, 0.8);
-    backdrop-filter: blur(6px);
-    padding: 18px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e0d9cf;
-    z-index: 10;
+body { 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-primary); 
+    padding: 2rem; 
+    margin: 0; 
+    line-height: 1.6;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #5a4a3f;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #5a4a3f;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: #8b7765;
-}
-
-
-/* ---------- HERO SECTION ---------- */
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 140px 60px 60px;
-    gap: 80px;
-}
-
-/* LEFT SIDE – Organic Blob Image */
-.blob-container {
-    position: relative;
-    width: 280px;
-    height: 320px;
-}
-
-.blob-shape {
-    position: absolute;
-    width: 280px;
-    height: 320px;
-    background: #e5ddd4;
-    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-    filter: blur(2px);
-    z-index: 1;
-}
-
-.blob-image {
-    position: absolute;
-    width: 280px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-    z-index: 2;
-    transition: transform 0.3s ease;
-}
-
-.blob-image:hover {
-    transform: scale(1.03);
-}
-
-
-/* RIGHT SIDE HERO TEXT */
-.hero-right {
-    max-width: 450px;
-}
-
-.hero-title {
-    font-size: 42px;
-    font-weight: 700;
-    color: #4b3f32;
-    margin-bottom: 14px;
-}
-
-.hero-subtitle {
-    font-size: 18px;
-    color: #6a5d52;
-    margin-bottom: 22px;
-}
-
-.hero-buttons {
-    margin-top: 12px;
-}
-
-/* Buttons */
-.btn-primary {
-    padding: 12px 26px;
-    background: #5d4c3f;
-    color: #fff;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 10px;
-}
-
-.btn-primary:hover {
-    background: #7a6454;
-}
-
-.btn-outline {
-    padding: 12px 26px;
-    border: 2px solid #5d4c3f;
-    border-radius: 25px;
-    color: #5d4c3f;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-outline:hover {
-    background: #eae4dd;
-}
-
-
-/* ---------- SECTIONS ---------- */
-.section {
-    padding: 60px 40px;
+/* --- GRID LAYOUT (The Bento Box) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    grid-template-rows: auto;
+    gap: 1.5rem; /* Space between cards */
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto; /* Center the grid on screen */
 }
 
-h2 {
-    font-size: 28px;
-    margin-bottom: 22px;
-    color: #4b3f32;
+/* --- CARD STYLING --- */
+.card { 
+    background: var(--card-bg); 
+    border-radius: 24px; 
+    padding: 2rem; 
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.5);
+    position: relative;
 }
 
-/* Section Card */
-.section-card {
-    background: #ffffff;
-    padding: 26px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin-bottom: 22px;
+/* Card Hover Animation */
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
 }
 
-/* Text inside cards */
-.section-card h3 {
-    color: #4b3f32;
-    margin-bottom: 8px;
+/* --- TYPOGRAPHY --- */
+h1 { 
+    font-size: 2.25rem; 
+    font-weight: 800; 
+    margin: 0 0 10px 0; 
+    letter-spacing: -0.02em; 
+    color: var(--text-primary); 
 }
 
-.section-card p, 
-.section-card li {
-    font-size: 16px;
-    color: #63584e;
-    line-height: 1.55;
+h2 { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    margin: 0 0 10px 0; 
 }
 
-
-/* ---------- SKILLS GRID ---------- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+h3 { 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    color: var(--accent-color); 
+    margin-bottom: 12px; 
+    font-weight: 700; 
 }
 
-
-/* ---------- PROJECTS GRID ---------- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+p { 
+    font-size: 1rem; 
+    color: var(--text-secondary); 
+    margin: 0 0 1rem 0; 
 }
 
-.project-link {
+/* --- BUTTONS & LINKS --- */
+.btn {
     display: inline-block;
-    margin-top: 12px;
-    color: #5d4c3f;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
-
-
-/* ---------- EXPERIENCE LIST ---------- */
-.section-card ul {
-    padding-left: 20px;
-}
-
-.section-card ul li {
-    margin-bottom: 8px;
-}
-
-
-/* ---------- CERTIFICATIONS ---------- */
-.cert-list .section-card {
-    margin-bottom: 16px;
-}
-
-
-/* ---------- FOOTER ---------- */
-.footer {
-    background: #e7e0d7;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 40px;
-    border-top: 1px solid #d8cec3;
-}
-
-.footer a {
-    color: #5d4c3f;
+    background-color: var(--text-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    width: fit-content;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.btn:hover { 
+    background-color: var(--accent-color); 
 }
 
-
-/* ---------- ANIMATIONS ---------- */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.4s ease forwards;
+.link-text {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
+.link-text:hover { 
+    color: var(--accent-color); 
 }
 
-.fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s ease-out;
+/* --- SPECIFIC CARD LAYOUTS --- */
+
+/* 1. Intro Card (Top Left) */
+.intro { 
+    grid-column: span 2; 
+    grid-row: span 1; 
 }
 
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* 2. Skills Card (Right Tower) */
+.skills { 
+    grid-column: span 1; 
+    grid-row: span 2; 
+    background: var(--dark-card-bg); 
+    color: var(--dark-card-text); 
+}
+/* Override text colors for dark mode card */
+.skills h3 { color: #38bdf8; } 
+.skills p { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0.5rem;}
+
+/* Skill Tags */
+.tag-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    margin-bottom: 20px; 
 }
 
+.tag { 
+    background: rgba(255,255,255,0.15); 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    font-size: 0.8rem; 
+}
+
+/* 3. Social Links */
+.socials { 
+    grid-column: span 1; 
+    grid-row: span 1; 
+}
+.social-list p { margin-bottom: 0.5rem; }
+
+/* 4. Project Cards */
+.project-1 { grid-column: span 2; grid-row: span 1; } /* Main Feature */
+.project-2 { grid-column: span 1; grid-row: span 1; } 
+.project-3 { grid-column: span 1; grid-row: span 1; }
+
+/* --- RESPONSIVE DESIGN (MOBILE) --- */
+@media (max-width: 768px) {
+    .bento-grid { 
+        grid-template-columns: 1fr; /* Stack everything in 1 column */
+    }
+    
+    /* Make all cards span the full width */
+    .intro, .skills, .socials, .project-1, .project-2, .project-3 { 
+        grid-column: span 1; 
+        grid-row: auto; 
+    }
+    
+    body { 
+        padding: 1rem; /* Less padding on small screens */
+    }
+}
