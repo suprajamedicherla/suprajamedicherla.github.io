@@ -34,24 +34,23 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            perspective: 1000px; /* Essential for 3D */
         }
 
-        /* --- 2. BACKGROUND ANIMATION --- */
+/* --- 2. SMOOTH BACKGROUND BLOBS --- */
         .background-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
         }
         .blob {
-            position: absolute; filter: blur(80px); opacity: 0.6; border-radius: 50%;
-            animation: moveBlob 20s infinite alternate;
+            position: absolute; filter: blur(100px); opacity: 0.4; border-radius: 50%;
+            animation: moveBlob 25s infinite alternate ease-in-out;
         }
-        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--accent-purple); }
-        .blob-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: var(--accent-cyan); animation-delay: -5s; }
-        .blob-3 { top: 40%; left: 30%; width: 30vw; height: 30vw; background: var(--accent-pink); animation-delay: -10s; }
+        .blob-1 { top: -10%; left: -10%; width: 60vw; height: 60vw; background: var(--accent-purple); }
+        .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: var(--accent-cyan); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 30%; width: 40vw; height: 40vw; background: var(--accent-pink); animation-delay: -10s; }
 
         @keyframes moveBlob {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, -50px) scale(1.1); }
+            100% { transform: translate(30px, -30px) scale(1.05); }
         }
 
         /* --- 3. GRID LAYOUT --- */
@@ -73,16 +72,11 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 30px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            
-            /* Animation Setup */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             opacity: 0; 
             transform: translateY(30px);
             animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            
-            /* 3D Tilt Setup */
-            transition: transform 0.1s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            transform-style: preserve-3d;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         /* Staggered Entrance */
@@ -95,62 +89,55 @@
 
         @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-        /* Hover Effect (Glow) */
         .card:hover {
-            border-color: rgba(0, 229, 255, 0.3);
-            box-shadow: 0 0 40px rgba(0, 229, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
-        /* --- 5. TYPEWRITER EFFECT --- */
-        .typewriter-container {
-            display: inline-block;
-        }
-        .typewriter {
-            overflow: hidden; 
-            border-right: 3px solid var(--accent-cyan); 
-            white-space: nowrap; 
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--accent-cyan);
-            letter-spacing: 2px;
-            font-weight: 700;
-            text-transform: uppercase;
-            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
-            max-width: 100%;
+        /* --- 5. ANIMATED GRADIENT NAME --- */
+        .shimmer-text {
+            font-size: 2.8rem; margin: 10px 0; line-height: 1.1; font-weight: 800;
+            background: linear-gradient(90deg, #ffffff, #00e5ff, #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 5s linear infinite;
         }
 
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent-cyan); } }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
 
-
-        /* --- 6. SECTION LAYOUTS --- */
-        .hero { grid-column: span 2; flex-direction: row; align-items: center; justify-content: space-between; gap: 30px; }
-        .hero-content { flex: 1; z-index: 2; transform: translateZ(20px); /* Pops text out in 3D */ }
+        /* --- 6. HERO LAYOUT (IMAGE LEFT) --- */
+        .hero { 
+            grid-column: span 2; 
+            display: flex;
+            flex-direction: row; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 40px; 
+        }
+        .hero-content { flex: 1; z-index: 2; }
         
-        .profile-img-container { flex-shrink: 0; transform: translateZ(30px); }
+        .profile-img-container { flex-shrink: 0; position: relative; }
         .profile-img {
             width: 170px; height: 170px; border-radius: 50%; object-fit: cover;
-            border: 4px solid rgba(0, 229, 255, 0.3);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
-            transition: transform 0.5s ease;
+            border: 3px solid rgba(0, 229, 255, 0.3);
+            animation: glowPulse 4s infinite ease-in-out;
         }
-        .card:hover .profile-img { transform: scale(1.05); }
-
-        /* Education & Skills */
-        .education { grid-column: span 2; }
-        .skills { grid-column: span 1; }
-        .certs { grid-column: span 1; }
         
-        /* Projects */
-        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
-        .project-small { grid-column: span 1; }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 229, 255, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+        }
 
         /* --- 7. ELEMENTS & TYPOGRAPHY --- */
-        h1 { font-size: 2.8rem; margin: 10px 0; line-height: 1.1; font-weight: 800; }
         h2 { font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700; }
         h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 15px; }
         
-        /* New Styles for Skill Categories */
         h4.skill-category { 
             font-size: 0.75rem; color: var(--text-gray); margin: 15px 0 8px 0; font-weight: 600; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;
         }
@@ -158,9 +145,10 @@
 
         p { color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
         
-        .gradient-text {
-            background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        .badge {
+            background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan);
+            padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+            display: inline-block; margin-bottom: 10px; border: 1px solid rgba(0, 229, 255, 0.2);
         }
 
         /* Buttons */
@@ -168,33 +156,23 @@
         .btn-glow {
             background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
             color: white; padding: 12px 24px; border-radius: 30px;
-            text-decoration: none; font-weight: 600; box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
-            transition: all 0.3s ease;
-            position: relative; overflow: hidden;
+            text-decoration: none; font-weight: 600; box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+            transition: all 0.3s ease; position: relative; overflow: hidden; border: none;
         }
-        .btn-glow:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 30px rgba(255, 0, 127, 0.7); }
-        .btn-ghost {
-            background: transparent; border: 1px solid rgba(255,255,255,0.3);
-            color: white; padding: 12px 24px; border-radius: 30px;
-            text-decoration: none; font-weight: 600; transition: all 0.3s;
+        .btn-glow::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
         }
-        .btn-ghost:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+        .btn-glow:hover::after { left: 100%; }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(255, 0, 127, 0.5); }
 
-        /* Sticker Animation */
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag {
-            font-size: 0.75rem; padding: 6px 12px; border-radius: 12px;
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            display: flex; align-items: center; gap: 6px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .tag:hover {
-            transform: scale(1.1) rotate(2deg);
-            background: rgba(255,255,255,0.15);
-            border-color: var(--accent-cyan);
-            cursor: default;
-        }
-        .tag.highlight { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+        /* --- 8. OTHER SECTIONS --- */
+        .education { grid-column: span 2; }
+        .skills { grid-column: span 1; }
+        .certs { grid-column: span 1; }
+        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
+        .project-small { grid-column: span 1; }
 
         /* Timeline & Certs */
         .timeline-item { display: flex; gap: 15px; margin-bottom: 20px; position: relative; }
@@ -209,18 +187,34 @@
         .cert-badge {
             display: flex; align-items: center; gap: 10px;
             background: rgba(0, 229, 255, 0.05); padding: 10px 15px; border-radius: 12px;
-            border: 1px solid rgba(0, 229, 255, 0.1); transition: all 0.2s;
-            text-decoration: none;
+            border: 1px solid rgba(0, 229, 255, 0.1); transition: all 0.2s; text-decoration: none;
         }
         .cert-badge:hover { background: rgba(0, 229, 255, 0.15); transform: translateX(5px); border-color: var(--accent-cyan); }
         .cert-text { font-size: 0.85rem; font-weight: 600; color: #e0e0e0; }
         .check-icon { color: var(--accent-cyan); }
+        
+        /* Tags */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: 0.75rem; padding: 6px 12px; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; gap: 6px; transition: border-color 0.3s;
+        }
+        .tag:hover { border-color: var(--accent-cyan); }
+        .tag.highlight { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+        .btn-ghost {
+            background: transparent; border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 8px 16px; border-radius: 20px;
+            text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
         @media (max-width: 768px) {
             .glass-container { grid-template-columns: 1fr; }
-            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero { flex-direction: column; text-align: center; } /* Image on Top */
             .hero, .skills, .education, .certs, .project-featured, .project-small { grid-column: span 1; }
-            .profile-img { width: 140px; height: 140px; }
+            .profile-img { width: 140px; height: 140px; margin-bottom: 20px; }
             .btn-group { justify-content: center; }
         }
     </style>
