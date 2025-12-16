@@ -6,13 +6,180 @@
     <title>Supraja Medicherla | Health Data Scientist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CSS STYLES (THE COLORS) --- */
+        :root {
+            /* Dark Purple/Blue Theme */
+            --bg-dark: #0f0c29;
+            --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.05); /* See-through glass */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            
+            /* Text Colors */
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+            
+            /* Neon Accents */
+            --accent-pink: #ff007f;
+            --accent-cyan: #00e5ff;
+            --accent-purple: #7b2cbf;
+        }
+
+        /* Reset & Body - This makes the background DARK */
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark); /* Fallback color */
+            background-image: var(--bg-gradient); /* Gradient Background */
+            color: var(--text-white);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+        }
+
+        /* --- 2. MOVING BACKGROUND BLOBS --- */
+        .background-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(90px);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: float 10s infinite alternate;
+        }
+
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--accent-purple); }
+        .blob-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: var(--accent-cyan); animation-delay: -2s; }
+        .blob-3 { top: 40%; left: 30%; width: 30vw; height: 30vw; background: var(--accent-pink); animation-delay: -4s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 50px); }
+        }
+
+        /* --- 3. GRID LAYOUT --- */
+        .glass-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* --- 4. CARD STYLING --- */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- 5. TEXT & ELEMENTS --- */
+        h1 { font-size: 2.5rem; margin: 10px 0; line-height: 1.1; font-weight: 800; }
+        h2 { font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700; }
+        h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 10px; }
+        p { color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        /* --- 6. BUTTONS --- */
+        .btn-group { display: flex; gap: 15px; margin-top: auto; }
+
+        .btn-glow {
+            background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+            transition: box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-glow:hover { box-shadow: 0 0 25px rgba(255, 0, 127, 0.7); }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+        /* --- 7. TAGS --- */
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .tag.highlight { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+        /* --- 8. RESPONSIVE DESIGN --- */
+        .hero { grid-column: span 2; }
+        .skills { grid-column: span 1; }
+        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
+        .project-small { grid-column: span 1; }
+
+        @media (max-width: 768px) {
+            .glass-container { grid-template-columns: 1fr; }
+            .hero, .skills, .project-featured, .project-small { grid-column: span 1; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="background-blobs">
+    <div class="background-container">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
@@ -21,85 +188,70 @@
     <div class="glass-container">
         
         <div class="card hero">
-            <div class="badge">Pharm.D + Data Science</div>
+            [cite_start]<div class="badge">Pharm.D + Data Science [cite: 5, 13]</div>
             <h1 class="gradient-text">Supraja Medicherla</h1>
             <p>
-                I transform complex <strong>EHR data</strong> into actionable clinical insights. 
-                Bridging the gap between patient care and predictive analytics.
+                Bridging the gap between <strong>Clinical Pharmacy</strong> and <strong>Data Science</strong>. 
+                [cite_start]Experienced in EHR data management, analytics, and patient outcomes[cite: 6].
             </p>
-            <div class="stats-row">
-                <div class="stat">
-                    <span class="stat-num">3+</span>
-                    <span class="stat-label">Major Projects</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">3.97</span>
-                    <span class="stat-label">GPA (MS)</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">SQL</span>
-                    <span class="stat-label">Expertise</span>
-                </div>
-            </div>
             <div class="btn-group">
                 <a href="mailto:suprajamedicherla249@gmail.com" class="btn-glow">Contact Me</a>
-                <a href="https://linkedin.com/in/suprajamedicherla" target="_blank" class="btn-ghost">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/suprajamedicherla/" target="_blank" class="btn-ghost">LinkedIn</a>
             </div>
         </div>
 
         <div class="card skills">
-            <h3>Technical Arsenal</h3>
+            <h3>Technical Stack</h3>
             <div class="tag-cloud">
-                <span class="tag python">Python 🐍</span>
-                <span class="tag sql">SQL 🗄️</span>
-                <span class="tag r-lang">R 📊</span>
-                <span class="tag tableau">Tableau 🎨</span>
-                <span class="tag ml">Machine Learning 🤖</span>
-                <span class="tag ehr">EHR Systems 🏥</span>
-                <span class="tag hipaa">HIPAA 🔒</span>
-                <span class="tag bigquery">BigQuery ☁️</span>
+                <span class="tag highlight">Python 🐍</span>
+                <span class="tag highlight">SQL 🗄️</span>
+                <span class="tag">R 📊</span>
+                <span class="tag">Tableau</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">EHR Systems</span>
+                <span class="tag">HIPAA</span>
+                <span class="tag">BigQuery</span>
             </div>
         </div>
 
         <div class="card project-featured">
-            <div class="project-header">
-                <h3> Featured Capstone </h3>
-                <span class="status-dot">Live App</span>
-            </div>
+            <h3>Featured Capstone</h3>
             <h2>Anxiety Severity Predictor</h2>
             <p>
                 A Machine Learning model (KNN) classifying anxiety levels in college students.
-                Achieved <strong>92.7% Recall</strong>.
+                [cite_start]Achieved <strong>92.7% Recall</strong>[cite: 42].
             </p>
-            <div class="project-links">
-                <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="link-arrow">Launch App ↗</a>
-                <span class="tech-stack">Streamlit • Python • Scikit-Learn</span>
+            <div class="btn-group">
+                <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="btn-glow">Launch Live App 🚀</a>
             </div>
         </div>
 
         <div class="card project-small">
             <h3>XGBoost Model</h3>
             <h2>Health Risk App</h2>
-            <p>Assessing individual health risks with 84% accuracy using lifestyle data.</p>
-            <a href="https://github.com/suprajamedicherla" target="_blank" class="icon-link">
-                View Code <img src="https://simpleicons.org/icons/github.svg" width="16" style="filter: invert(1);">
-            </a>
+            [cite_start]<p>Assessing individual health risks with <strong>84% accuracy</strong> using lifestyle data[cite: 37].</p>
+            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
         </div>
 
         <div class="card project-small">
             <h3>Data Analysis</h3>
             <h2>COVID-19 SQL Study</h2>
-            <p>Analyzing vaccine disparities and infection rates using Google BigQuery.</p>
-            <a href="https://github.com/suprajamedicherla" target="_blank" class="icon-link">
-                View Code <img src="https://simpleicons.org/icons/github.svg" width="16" style="filter: invert(1);">
-            </a>
+            [cite_start]<p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>[cite: 28].</p>
+            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
+        </div>
+
+        <div class="card project-small">
+            <h3>Portfolio</h3>
+            <h2>Github Profile</h2>
+            <p>Check out my other projects and repositories.</p>
+            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">Visit Profile</a>
         </div>
 
     </div>
 
-    <footer>
-        <p>© <span id="year"></span> Supraja Medicherla. Built with Code & Science.</p>
-    </footer>
-
+    <script>
+        // Simple script to log that the page loaded
+        console.log("Portfolio Loaded Successfully");
+    </script>
 </body>
 </html>
