@@ -101,6 +101,34 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        /* --- NEW: HERO CARD LAYOUT (Text Left, Image Right) --- */
+        .hero { 
+            grid-column: span 2;
+            flex-direction: row; /* Align items side-by-side */
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-content {
+            flex: 1; /* Text takes available space */
+        }
+
+        /* --- NEW: PROFILE IMAGE STYLING --- */
+        .profile-img-container {
+            flex-shrink: 0; /* Don't squish the image */
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; /* Circle shape */
+            object-fit: cover; /* Ensures image doesn't stretch */
+            border: 3px solid rgba(0, 229, 255, 0.3); /* Cyan glass border */
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); /* Subtle glow */
+        }
+
+
         /* --- 5. TEXT & ELEMENTS --- */
         h1 { font-size: 2.5rem; margin: 10px 0; line-height: 1.1; font-weight: 800; }
         h2 { font-size: 1.5rem; margin: 0 0 10px 0; font-weight: 700; }
@@ -165,14 +193,21 @@
         .tag.highlight { border-color: var(--accent-cyan); color: var(--accent-cyan); }
 
         /* --- 8. RESPONSIVE DESIGN --- */
-        .hero { grid-column: span 2; }
         .skills { grid-column: span 1; }
         .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
         .project-small { grid-column: span 1; }
 
         @media (max-width: 768px) {
             .glass-container { grid-template-columns: 1fr; }
-            .hero, .skills, .project-featured, .project-small { grid-column: span 1; }
+            /* Stack items vertically on mobile */
+            .hero { 
+                grid-column: span 1; 
+                flex-direction: column-reverse; /* Put image on top on mobile */
+                text-align: center;
+            }
+            .btn-group { justify-content: center; }
+            
+            .skills, .project-featured, .project-small { grid-column: span 1; }
             h1 { font-size: 2rem; }
         }
     </style>
@@ -188,15 +223,21 @@
     <div class="glass-container">
         
         <div class="card hero">
-            <div class="badge">Pharm.D + Data Science</div>
-            <h1 class="gradient-text">Supraja Medicherla</h1>
-            <p>
-                Bridging the gap between <strong>Clinical Pharmacy</strong> and <strong>Data Science</strong>. 
-                Experienced in EHR data management, analytics, and patient outcomes.
-            </p>
-            <div class="btn-group">
-                <a href="mailto:suprajamedicherla249@gmail.com" class="btn-glow">Contact Me</a>
-                <a href="https://www.linkedin.com/in/supraja-medicherla-1a17571b3/" target="_blank" class="btn-ghost">LinkedIn</a>
+            <div class="hero-content">
+                <div class="badge">Pharm.D + Data Science</div>
+                <h1 class="gradient-text">Supraja Medicherla</h1>
+                <p>
+                    Bridging the gap between <strong>Clinical Pharmacy</strong> and <strong>Data Science</strong>. 
+                    Experienced in EHR data management, analytics, and patient outcomes.
+                </p>
+                <div class="btn-group">
+                    <a href="mailto:suprajamedicherla249@gmail.com" class="btn-glow">Contact Me</a>
+                    <a href="https://www.linkedin.com/in/suprajamedicherla/" target="_blank" class="btn-ghost">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="profile-img-container">
+                <img src="https://ui-avatars.com/api/?name=S+M&background=00e5ff&color=0f0c29&size=200" alt="Supraja Medicherla" class="profile-img">
             </div>
         </div>
 
