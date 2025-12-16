@@ -29,20 +29,20 @@
             --accent-purple: #7b2cbf;
         }
 
-        /* Reset & Body - This makes the background DARK */
+        /* Reset & Body */
         * { box-sizing: border-box; }
         
         body {
             margin: 0;
             padding: 20px;
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-dark); /* Fallback color */
-            background-image: var(--bg-gradient); /* Gradient Background */
+            background: var(--bg-dark); 
+            background-image: var(--bg-gradient); 
             color: var(--text-white);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to top */
+            align-items: flex-start; 
         }
 
         /* --- 2. MOVING BACKGROUND BLOBS --- */
@@ -188,7 +188,7 @@
     <div class="glass-container">
         
         <div class="card hero">
-            [cite_start]<div class="badge">Pharm.D + Data Science</div>
+            <div class="badge">Pharm.D + Data Science</div>
             <h1 class="gradient-text">Supraja Medicherla</h1>
             <p>
                 Bridging the gap between <strong>Clinical Pharmacy</strong> and <strong>Data Science</strong>. 
@@ -236,7 +236,7 @@
         <div class="card project-small">
             <h3>Data Analysis</h3>
             <h2>COVID-19 SQL Study</h2>
-            [cite_start]<p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>[cite: 28].</p>
+            <p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>.</p>
             <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
         </div>
 
@@ -249,9 +249,5 @@
 
     </div>
 
-    <script>
-        // Simple script to log that the page loaded
-        console.log("Portfolio Loaded Successfully");
-    </script>
 </body>
 </html>
