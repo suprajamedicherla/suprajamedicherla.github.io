@@ -3,208 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supraja Medicherla | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>Supraja Medicherla | Health Data Scientist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. GLOBAL VARIABLES & RESET --- */
+        :root { 
+            --bg-color: #f3f4f6; 
+            --card-bg: #ffffff; 
+            --text-primary: #111827; 
+            --text-secondary: #6b7280; 
+            --accent-color: #0ea5e9; /* Medical Blue */
+            --accent-hover: #0284c7;
+            --dark-card-bg: #1e293b;
+            --dark-card-text: #f8fafc;
+        }
 
+        * { box-sizing: border-box; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-color); 
+            color: var(--text-primary); 
+            padding: 2rem; 
+            margin: 0; 
+            line-height: 1.5;
+        }
+        
+        /* --- 2. BENTO GRID LAYOUT --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. CARD STYLING --- */
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 24px; 
+            padding: 2rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+            transition: all 0.3s ease; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        /* Hover Effect: Lifts up slightly */
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* --- 4. TYPOGRAPHY --- */
+        h1 { font-size: 2.25rem; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -0.02em; color: var(--text-primary); }
+        h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 10px 0; }
+        h3 { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            color: var(--accent-color); 
+            margin-bottom: 12px; 
+            font-weight: 700; 
+        }
+        p { font-size: 1rem; color: var(--text-secondary); margin: 0 0 1rem 0; }
+        
+        /* --- 5. BUTTONS & LINKS --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--text-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            width: fit-content;
+        }
+        .btn:hover { background-color: var(--accent-color); }
+
+        .link-text {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .link-text:hover { color: var(--accent-color); }
+
+        /* --- 6. SPECIFIC CARD STYLES --- */
+        
+        /* Intro Card (Top Left) */
+        .intro { grid-column: span 2; grid-row: span 1; }
+        
+        /* Skills Card (Right Tall Tower) - Dark Theme */
+        .skills { 
+            grid-column: span 1; 
+            grid-row: span 2; 
+            background: var(--dark-card-bg); 
+            color: var(--dark-card-text); 
+        }
+        .skills h3 { color: #38bdf8; } /* Lighter blue for dark background */
+        .skills p { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0.5rem;}
+        
+        /* Tag pills for skills */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tag { 
+            background: rgba(255,255,255,0.15); 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.8rem; 
+        }
+
+        /* Socials Card */
+        .socials { grid-column: span 1; grid-row: span 1; }
+        .social-list p { margin-bottom: 0.5rem; }
+
+        /* Project Cards */
+        .project-1 { grid-column: span 2; grid-row: span 1; } /* Main Feature */
+        .project-2 { grid-column: span 1; grid-row: span 1; } 
+        .project-3 { grid-column: span 1; grid-row: span 1; }
+
+        /* --- 7. RESPONSIVE DESIGN (Mobile) --- */
+        @media (max-width: 768px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .intro, .skills, .socials, .project-1, .project-2, .project-3 { grid-column: span 1; grid-row: auto; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <h3 class="logo">Supraja</h3>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-
-<!-- HERO SECTION WITH ORGANIC BLOB IMAGE -->
-<header class="hero">
-
-    <div class="hero-left">
-        <div class="blob-container">
-            <img src="mypic.jpg" alt="Supraja Medicherla" class="blob-image">
-            <div class="blob-shape"></div>
-        </div>
-    </div>
-
-    <div class="hero-right fade-in">
-        <h1 class="hero-title">Supraja Medicherla</h1>
-        <p class="hero-subtitle">
-            Health Informatics • Data Science • EHR Specialist (CEHRS)
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">View Projects</a>
-            <a href="#contact" class="btn-outline">Contact Me</a>
-        </div>
-    </div>
-
-</header>
-
-
-<!-- ABOUT SECTION -->
-<section id="about" class="section fade-up">
-    <div class="glass-card">
-        <h2>About Me</h2>
-        <p>
-            Health Informatics and Data Science professional with expertise in EHR systems, healthcare analytics,
-            predictive modeling, and workflow optimization. Certified Electronic Health Record Specialist (CEHRS).
-            Skilled in SQL, Python, Power BI, and interpreting clinical data to enhance patient outcomes, streamline
-            hospital processes, and drive innovation across healthcare systems.
-        </p>
-    </div>
-</section>
-
-
-<!-- EDUCATION SECTION -->
-<section id="education" class="section fade-up">
-    <h2>Education</h2>
-
-    <div class="section-card">
-        <h3>Master of Science — Health Data Science</h3>
-        <p>Saint Louis University — GPA: 3.97</p>
-    </div>
-
-    <div class="section-card">
-        <h3>Doctor of Pharmacy (Pharm.D)</h3>
-        <p>St. Peter's Institute of Pharmaceutical Sciences — GPA: 3.8</p>
-    </div>
-</section>
-
-
-<!-- EXPERIENCE SECTION -->
-<section id="experience" class="section fade-up">
-    <h2>Experience</h2>
-
-    <div class="section-card">
-        <h3>Clinical Informatics Analyst Intern</h3>
-        <p><strong>Rohini Super Speciality Hospital</strong> — 2021 to 2023</p>
-
-        <ul>
-            <li>Assisted clinical teams in managing and optimizing Electronic Health Record (EHR) systems to enhance documentation accuracy and care coordination</li>
-            <li>Collaborated with physicians, nurses, and administrative staff to streamline digital workflows and standardize clinical documentation templates</li>
-            <li>Analyzed and visualized patient outcomes, treatment adherence, and quality metrics using SQL, Power BI, and Excel</li>
-            <li>Performed data audits to ensure compliance with healthcare data privacy and integrity standards equivalent to HIPAA</li>
-            <li>Developed and deployed data validation scripts and process checks to enhance reporting accuracy and minimize manual errors</li>
-            <li>Provided user training and go-live support, gathering feedback to guide EHR feature enhancements and process improvements</li>
-            <li>Collaborated with quality and compliance teams to align documentation practices with clinical guidelines and regulatory standards (ICD-10, CPT)</li>
-            <li>Worked with IT staff to troubleshoot user issues, test EHR updates, and evaluate system integration performance</li>
-        </ul>
-    </div>
-</section>
-
-
-<!-- SKILLS SECTION -->
-<section id="skills" class="section fade-up">
-    <h2>Skills</h2>
-
-    <div class="skills-grid">
-
-        <div class="section-card">
-            <h3>Programming</h3>
-            <p>Python, SQL, R</p>
-        </div>
-        
-        <div class="section-card"> 
-            <h3>Machine Learning</h3>
-            <p>KNN, SVM, Random Forest, XGBoost, CNN, RNN, GAN</p>
-        </div>
-        
-        <div class="section-card"> 
-            <h3>Statistics</h3>
-            <p>T-tests, Chi-square, ANOVA, Regression, Hypothesis Testing</p>
-        </div>
-        
-        <div class="section-card"> 
-            <h3>Visualization</h3>
-            <p>Power BI, Tableau, Looker Studio, Matplotlib, Seaborn</p>
-        </div>
-        
-        <div class="section-card"> 
-            <h3>Healthcare Informatics</h3>
-            <p>EHR/EMR, ICD-10, CPT, SNOMED CT, HIPAA Compliance</p>
-        </div>
-        
-        <div class="section-card"> 
-            <h3>Platforms & Tools</h3>
-            <p>BigQuery, Snowflake, Databricks, Jupyter, Pandas, NumPy</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- PROJECTS SECTION -->
-<section id="projects" class="section fade-up">
-    <h2>Projects</h2>
-
-    <div class="project-grid">
-
-        <div class="section-card">
-            <h3>Anxiety Severity Prediction App</h3>
-            <p>Built a KNN model achieving F1 score of 0.879 to classify anxiety levels among U.S. college students.</p>
-            <a href="https://anxiety-screener-app.streamlit.app" target="_blank" class="project-link">Live App</a>
-        </div>
-
-        <div class="section-card">
-            <h3>Health Risk Prediction App</h3>
-            <p>Built a Multi-class XGBoost model predicting personal health risk from lifestyle + clinical features</p>
-        </div>
-
-        <div class="section-card">
-            <h3>COVID-19 BigQuery Analysis</h3>
-            <p>Analyzed multi-source health data to evaluate infection trends and vaccination disparities</p>
-        </div>
-
-        <div class="section-card">
-            <h3>Post-COVID CAD Risk Study</h3>
-            <p>Conducted a 9-month prospective clinical study on CAD patients in a cardiology department in Telangana, India</p>
-            <p>Analyzed biomarkers, angiographic data, and lab parameters using T-tests to assess post-COVID complications</p>
-        </div>
-
-    </div>
-</section>
-
+<div class="bento-grid">
     
-<!-- CERTIFICATIONS -->
-<section id="certifications" class="section fade-up">
-    <h2>Certifications</h2>
-
-    <ul class="cert-list">
-        <li class="glass-card">Certified Electronic Health Record Specialist (CEHRS)</li>
-        <li class="glass-card">HIPAA Compliance Training Certification</li>
-        <li class="glass-card">Databricks Lakehouse Fundamentals</li>
-        <li class="glass-card">Databricks Accredited Generative AI Fundamentals</li>
-        <li class="glass-card">Biomedical Research (CITI Program)</li>
-        <li class="glass-card">Acute Ischemic Stroke Evaluation – Cleveland Clinic</li>
-    </ul>
-</section>
-
-
-<!-- PUBLICATION SECTION -->
-<section id="publication" class="section fade-up">
-    <h2>Publication</h2>
-
-    <div class="section-card">
-        <h3>Recombinant Alkaline Phosphatase Prevents Acute on Chronic Liver Failure</h3>
-        <p>Published on SSRN</p>
+    <div class="card intro">
+        <h3>MS HEALTH DATA SCIENCE + PHARM.D</h3>
+        <h1>Supraja Medicherla</h1>
+        <p>
+            I combine clinical expertise with data science to solve healthcare problems. 
+            Experienced in <strong>EHR data management</strong>, <strong>Machine Learning</strong>, and <strong>Patient Safety</strong>.
+        </p>
+        <a href="mailto:suprajamedicherla249@gmail.com" class="btn">Get in Touch</a>
     </div>
-</section>
 
+    <div class="card socials">
+        <h3>NETWORK</h3>
+        <div class="social-list">
+            <p><a href="https://linkedin.com/in/suprajamedicherla" class="link-text">LinkedIn ↗</a></p>
+            <p><a href="https://github.com/suprajamedicherla" class="link-text">GitHub ↗</a></p>
+            <p><a href="mailto:suprajamedicherla249@gmail.com" class="link-text">Email ↗</a></p>
+        </div>
+    </div>
 
-<!-- CONTACT SECTION -->
-<footer id="contact" class="footer">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:suprajamedicherla249@gmail.com">suprajamedicherla249@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/suprajamedicherla" target="_blank">github.com/suprajamedicherla</a></p>
-    <p>Location: USA</p>
-</footer>
+    <div class="card skills">
+        <h3>TECHNICAL STACK</h3>
+        
+        <p><strong>Languages</strong></p>
+        <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">R</span>
+        </div>
+        
+        <p><strong>Data & BI</strong></p>
+        <div class="tag-container">
+            <span class="tag">Tableau</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">Pandas</span>
+        </div>
 
-<script src="script.js"></script>
+        <p><strong>Clinical Tech</strong></p>
+        <div class="tag-container">
+            <span class="tag">EHR Systems</span>
+            <span class="tag">ICD-10</span>
+            <span class="tag">HIPAA</span>
+            <span class="tag">SNOMED CT</span>
+        </div>
+
+        <p><strong>Machine Learning</strong></p>
+        <div class="tag-container">
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">TensorFlow</span>
+        </div>
+    </div>
+
+    <div class="card project-1">
+        <h3>FEATURED PROJECT</h3>
+        <h2>Anxiety Severity Predictor</h2>
+        <p>
+            Designed a predictive model to classify anxiety severity among college students. 
+            Achieved <strong>92.7% recall</strong> using a Tuned KNN classifier. 
+            Deployed as an interactive web app.
+        </p>
+        <div style="margin-top: auto;">
+            <a href="https://anxiety-screener-app.streamlit.app" class="btn" target="_blank">Launch Live App</a>
+            <span style="margin-left: 15px; font-size: 0.9rem; color: var(--text-secondary);">Built with Python & Streamlit</span>
+        </div>
+    </div>
+
+    <div class="card project-2">
+        <h3>ML APPLICATION</h3>
+        <h2>Health Risk App</h2>
+        <p>
+            A multi-class classification tool using <strong>XGBoost</strong> to assess health risks based on lifestyle data. 
+            Achieved <strong>84% accuracy</strong>.
+        </p>
+        <a href="https://github.com/suprajamedicherla" class="link-text">View Code ↗</a>
+    </div>
+
+    <div class="card project-3">
+        <h3>DATA ANALYSIS</h3>
+        <h2>COVID-19 SQL Study</h2>
+        <p>
+            Aggregated multi-source public health data using <strong>BigQuery (SQL)</strong> to evaluate vaccine uptake disparities.
+        </p>
+        <a href="https://github.com/suprajamedicherla" class="link-text">View Code ↗</a>
+    </div>
+
+</div>
+
 </body>
 </html>
