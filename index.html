@@ -118,14 +118,15 @@
         .hero { 
             grid-column: span 2; 
             display: flex;
-            flex-direction: row; 
+            flex-direction: column; 
             align-items: center; 
-            justify-content: space-between; 
+            text-align: center
+            justify-content: center; 
             gap: 40px; 
         }
-        .hero-content { flex: 1; z-index: 2; }
+        .hero-content.centered { flex: 1; z-index: 2; }
         
-        .profile-img-container { flex-shrink: 0; position: relative; }
+        .profile-img-container.top-img { flex-shrink: 0; position: relative; display: flex; justify-content: center;}
         .profile-img {
             width: 170px; height: 170px; border-radius: 50%; object-fit: cover;
             border: 3px solid rgba(0, 229, 255, 0.3);
@@ -238,11 +239,11 @@
     <div class="glass-container">
         
         <div class="card hero">
-            <div class="profile-img-container">
+            <div class="profile-img-container top-img">
                 <img src="mypic.jpg" alt="Supraja Medicherla" class="profile-img">
             </div>
     
-            <div class="hero-content">
+            <div class="hero-content centered">
                 <h1 class="gradient-text">Supraja Medicherla</h1>
                 
                 <div class="badge">Pharm.D + Data Science</div>
