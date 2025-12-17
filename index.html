@@ -177,8 +177,9 @@
             grid-column: span 3; 
             background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,210,255,0.05));
         }
-        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
-        .project-small { grid-column: span 1; }
+        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); 
+                          }
+        .project-risk-app { grid-column: span 1; }
 
         /* Timeline & Certs */
         .timeline-item { display: flex; gap: 15px; margin-bottom: 20px; position: relative; }
@@ -401,27 +402,45 @@
             </div>
         </div>
 
-        <div class="card project-small">
-            <h3>XGBoost Model</h3>
-            <h2>Health Risk App</h2>
-            <p>Assessing individual health risks with <strong>84% accuracy</strong> using lifestyle data.</p>
-            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
+        <div class="card project-risk-app">
+            <div class="tag-cloud" style="margin-bottom:15px;">
+                <span class="tag">XGBoost</span> <span class="tag">Streamlit</span>
+            </div>
+            <h3>Classification App</h3>
+            <h2>Health Risk Prediction</h2>
+            <p style="font-size:0.85rem; margin-bottom:10px;">
+                Developed a multi-class classification application to assess individual health risk using lifestyle and clinical data.
+            </p>
+            <ul class="project-list">
+                <li><strong>Highlights:</strong> 84% model accuracy, custom scoring, real-time screening.</li>
+                <li><strong>Tools:</strong> Python, Streamlit, XGBoost, Scikit-learn, Pandas.</li>
+            </ul>
         </div>
 
         <div class="card project-small">
-            <h3>Data Analysis</h3>
-            <h2>COVID-19 SQL Study</h2>
-            <p>Analyzing vaccine disparities and infection rates using <strong>Google BigQuery</strong>.</p>
-            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">View Code</a>
+            <h3>BigQuery + SQL</h3>
+            <h2>COVID-19 Aggregation</h2>
+            <p style="font-size:0.85rem; margin-bottom:10px;">
+                Analyzed multi-source public health data to understand infection patterns and healthcare incentive effects.
+            </p>
+            <ul class="project-list">
+                <li><strong>Highlights:</strong> Evaluated incentive impact, analyzed demographics.</li>
+                <li><strong>Tools:</strong> BigQuery, SQL, Data Visualization.</li>
+            </ul>
         </div>
 
         <div class="card project-small">
-            <h3>Portfolio</h3>
-            <h2>Github Profile</h2>
-            <p>Check out my other projects and repositories.</p>
-            <a href="https://github.com/suprajamedicherla" target="_blank" class="btn-ghost" style="font-size:0.8rem; padding: 8px 16px;">Visit Profile</a>
+            <h3>Clinical Research</h3>
+            <h2>Post-COVID CAD Analysis</h2>
+            <p style="font-size:0.85rem; margin-bottom:10px;">
+                Led a 9-month clinical study assessing CAD patients post-COVID to evaluate potential complications.
+            </p>
+            <ul class="project-list">
+                <li><strong>Highlights:</strong> Prospective clinical study, T-test analysis, angiographic data.</li>
+                <li><strong>Tools:</strong> SPSS, Excel, Statistical Methods.</li>
+            </ul>
         </div>
-
+        
     </div>
 
 </body>
