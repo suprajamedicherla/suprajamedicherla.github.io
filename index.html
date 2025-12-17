@@ -177,9 +177,9 @@
             grid-column: span 3; 
             background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,210,255,0.05));
         }
-        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); 
-                          }
+        .project-featured { grid-column: span 3; background: linear-gradient(120deg, rgba(255,255,255,0.07), rgba(0,229,255,0.05)); }
         .project-risk-app { grid-column: span 1; }
+        .publication { grid-column: span 3; }
 
         /* Timeline & Certs */
         .timeline-item { display: flex; gap: 15px; margin-bottom: 20px; position: relative; }
@@ -220,7 +220,7 @@
         @media (max-width: 768px) {
             .glass-container { grid-template-columns: 1fr; }
             .hero { flex-direction: column; text-align: center; } /* Image on Top */
-            .hero, .skills, .education, .certs, .project-featured, .project-small { grid-column: span 1; }
+            .hero, .skills, .education, .experience, .certs, .publication, .project-featured, .project-small { grid-column: span 1; }
             .profile-img { width: 140px; height: 140px; margin-bottom: 20px; }
             .btn-group { justify-content: center; }
         }
@@ -441,6 +441,17 @@
             </ul>
         </div>
         
+        <div class="card publication">
+            <h3>Research Publication</h3>
+            <div class="timeline-item">
+                <div class="edu-icon">📜</div>
+                <div class="edu-content">
+                    <h2 style="font-size:1.2rem; margin-bottom:5px;">Recombinant Alkaline Phosphatase Prevents Acute on Chronic Liver Failure</h2>
+                    <span style="font-size:0.9rem; color:var(--text-mute);">Published on <strong>SSRN</strong> • January 30th, 2020</span>
+                </div>
+            </div>
+         </div>
+    
     </div>
 
 </body>
