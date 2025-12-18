@@ -86,8 +86,8 @@
         .skills { animation-delay: 0.2s; }
         .education { animation-delay: 0.3s; }
         .certs { animation-delay: 0.4s; }
-        .experience { animation-delay: 0.5s; }
-        .project-featured { animation-delay: 0.6s; }
+        .project-featured { animation-delay: 0.5s; }
+        .experience { animation-delay: 0.6s; }
         .project-small { animation-delay: 0.7s; }
         .publication { animation-delay: 0.8;}
 
@@ -272,7 +272,7 @@
         @media (max-width: 768px) {
             .glass-container { grid-template-columns: 1fr; }
             .hero { flex-direction: column; text-align: center; } /* Image on Top */
-            .hero, .skills, .education, .experience, .certs, .publication, .project-featured, .project-small { grid-column: span 1; }
+            .hero, .skills, .education, .certs, .experience, .publication, .project-featured, .project-small { grid-column: span 1; }
             .profile-img { width: 140px; height: 140px; margin-bottom: 20px; }
             .btn-group { justify-content: center; }
         }
@@ -436,28 +436,7 @@
                 </a>
             </div>
         </div>
-
-        <div class="card experience">
-            <h3>Professional Experience</h3>
-            
-            <div class="timeline-item">
-                <div class="edu-icon">🏥</div>
-                <div class="edu-content">
-                    <h4>Clinical Informatics Analyst Intern</h4>
-                    <span>Rohini Superspeciality Hospital • July 2021 - July 2023</span>
-                    <p>
-                        • Assisted clinical teams in managing and optimizing Electronic Health Record (EHR) systems to enhance documentation accuracy and care coordination.<br>
-                        • Collaborated with physicians, nurses, and administrative staff to streamline digital workflows and standardize clinical documentation templates.<br>
-                        • Analyzed and visualized patient outcomes, treatment adherence, and quality metrics using SQL, Power BI, and Excel.<br>
-                        • Performed data audits to ensure compliance with healthcare data privacy and integrity standards equivalent to HIPAA.<br>
-                        • Developed and deployed data validation scripts and process checks to enhance reporting accuracy and minimize manual errors.<br>
-                        • Provided user training and go-live support, gathering feedback to guide EHR feature enhancements and process improvements.<br>
-                        • Collaborated with quality and compliance teams to align documentation practices with clinical guidelines and regulatory standards (ICD-10, CPT).<br>
-                        • Worked with IT staff to troubleshoot user issues, test EHR updates, and evaluate system integration performance.
-                    </p>
-                </div>
-            </div>
-        </div>
+        
         <div class="card project-featured">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
                 <h3>Capstone Project</h3>
@@ -512,6 +491,28 @@
                 <li><strong>Highlights:</strong> Evaluated incentive impact, analyzed demographics.</li>
                 <li><strong>Tools:</strong> BigQuery, SQL, Data Visualization.</li>
             </ul>
+        </div>
+        
+        <div class="card experience">
+            <h3>Professional Experience</h3>
+            
+            <div class="timeline-item">
+                <div class="edu-icon">🏥</div>
+                <div class="edu-content">
+                    <h4>Clinical Informatics Analyst Intern</h4>
+                    <span>Rohini Superspeciality Hospital • July 2021 - July 2023</span>
+                    <p>
+                        • Assisted clinical teams in managing and optimizing Electronic Health Record (EHR) systems to enhance documentation accuracy and care coordination.<br>
+                        • Collaborated with physicians, nurses, and administrative staff to streamline digital workflows and standardize clinical documentation templates.<br>
+                        • Analyzed and visualized patient outcomes, treatment adherence, and quality metrics using SQL, Power BI, and Excel.<br>
+                        • Performed data audits to ensure compliance with healthcare data privacy and integrity standards equivalent to HIPAA.<br>
+                        • Developed and deployed data validation scripts and process checks to enhance reporting accuracy and minimize manual errors.<br>
+                        • Provided user training and go-live support, gathering feedback to guide EHR feature enhancements and process improvements.<br>
+                        • Collaborated with quality and compliance teams to align documentation practices with clinical guidelines and regulatory standards (ICD-10, CPT).<br>
+                        • Worked with IT staff to troubleshoot user issues, test EHR updates, and evaluate system integration performance.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="card project-small">
