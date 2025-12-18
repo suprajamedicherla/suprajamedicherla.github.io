@@ -162,8 +162,41 @@
         }
 
         /* Buttons */
-        .btn-group { display: flex; width: 100%; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; flex-wrap: wrap;
+        .btn-group { display: flex; width: 100%; justify-content: center; align-items: center; gap: 25px; margin-top: 20px; flex-wrap: wrap;
                    }
+        .icon-btn {
+            width: 55px; height: 55px;  /* Circle Size */
+            border-radius: 50%;         /* Make it round */
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;          /* Icon Size */
+            transition: all 0.3s ease;
+        }
+
+        /* Mail Button (Glowing Gradient) */
+        .btn-mail {
+            background: linear-gradient(45deg, var(--accent-pink), #333399); 
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 0, 204, 0.4);
+        }
+        .btn-mail:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 0 25px rgba(255, 0, 204, 0.8); 
+        }
+
+        /* Social Buttons (Glass/Ghost) */
+        .btn-social {
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        .btn-social:hover { 
+            background: rgba(255, 255, 255, 0.1); 
+            border-color: var(--accent-cream); 
+            color: var(--accent-cream); 
+            transform: translateY(-5px); 
+        }
+        
         .btn-glow {
             background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
             color: white; padding: 12px 24px; border-radius: 30px;
